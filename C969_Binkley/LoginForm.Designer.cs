@@ -39,16 +39,18 @@ namespace C969_Binkley
             this.submitCredentialsButton = new System.Windows.Forms.Button();
             this.languageLabel = new System.Windows.Forms.Label();
             this.loginErrorLabel = new System.Windows.Forms.Label();
+            this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
             this.timePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // timePanel
             // 
             this.timePanel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.timePanel.Controls.Add(this.timePanelUTCTimeLabel);
             this.timePanel.Controls.Add(this.timePanelCurrentTimeLabel);
             this.timePanel.Location = new System.Drawing.Point(0, 0);
             this.timePanel.Name = "timePanel";
-            this.timePanel.Size = new System.Drawing.Size(140, 60);
+            this.timePanel.Size = new System.Drawing.Size(140, 100);
             this.timePanel.TabIndex = 0;
             // 
             // timePanelCurrentTimeLabel
@@ -150,6 +152,18 @@ namespace C969_Binkley
             this.loginErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.loginErrorLabel.Visible = false;
             // 
+            // timePanelUTCTimeLabel
+            // 
+            this.timePanelUTCTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.timePanelUTCTimeLabel.AutoSize = true;
+            this.timePanelUTCTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timePanelUTCTimeLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.timePanelUTCTimeLabel.Location = new System.Drawing.Point(20, 45);
+            this.timePanelUTCTimeLabel.Name = "timePanelUTCTimeLabel";
+            this.timePanelUTCTimeLabel.Size = new System.Drawing.Size(101, 24);
+            this.timePanelUTCTimeLabel.TabIndex = 1;
+            this.timePanelUTCTimeLabel.Text = "UTC Time:";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +199,7 @@ namespace C969_Binkley
         private System.Windows.Forms.Button submitCredentialsButton;
         private System.Windows.Forms.Label languageLabel;
         private System.Windows.Forms.Label loginErrorLabel;
+        private System.Windows.Forms.Label timePanelUTCTimeLabel;
     }
 }
 
