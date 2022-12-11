@@ -37,6 +37,7 @@ namespace C969_Binkley
             this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.submitCredentialsButton = new System.Windows.Forms.Button();
+            this.languageLabel = new System.Windows.Forms.Label();
             this.timePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace C969_Binkley
             // 
             // loginTitleLabel
             // 
-            this.loginTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.loginTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginTitleLabel.AutoSize = true;
             this.loginTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginTitleLabel.Location = new System.Drawing.Point(230, 67);
@@ -74,7 +75,7 @@ namespace C969_Binkley
             // 
             // usernameLabel
             // 
-            this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.usernameLabel.Location = new System.Drawing.Point(116, 131);
@@ -85,7 +86,7 @@ namespace C969_Binkley
             // 
             // passwordLabel
             // 
-            this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.passwordLabel.Location = new System.Drawing.Point(121, 190);
@@ -96,6 +97,7 @@ namespace C969_Binkley
             // 
             // usernameTextbox
             // 
+            this.usernameTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameTextbox.Location = new System.Drawing.Point(219, 135);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(186, 20);
@@ -103,6 +105,7 @@ namespace C969_Binkley
             // 
             // passwordTextbox
             // 
+            this.passwordTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTextbox.Location = new System.Drawing.Point(219, 194);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(186, 20);
@@ -110,6 +113,7 @@ namespace C969_Binkley
             // 
             // submitCredentialsButton
             // 
+            this.submitCredentialsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.submitCredentialsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitCredentialsButton.Location = new System.Drawing.Point(237, 241);
             this.submitCredentialsButton.Name = "submitCredentialsButton";
@@ -118,11 +122,24 @@ namespace C969_Binkley
             this.submitCredentialsButton.Text = "Submit";
             this.submitCredentialsButton.UseVisualStyleBackColor = true;
             // 
+            // languageLabel
+            // 
+            this.languageLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.languageLabel.AutoSize = true;
+            this.languageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.languageLabel.Location = new System.Drawing.Point(117, 435);
+            this.languageLabel.Name = "languageLabel";
+            this.languageLabel.Size = new System.Drawing.Size(328, 17);
+            this.languageLabel.TabIndex = 7;
+            this.languageLabel.Text = "This log-in form is available in English and Spanish";
+            this.languageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.languageLabel);
             this.Controls.Add(this.submitCredentialsButton);
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.usernameTextbox);
@@ -149,6 +166,7 @@ namespace C969_Binkley
         private System.Windows.Forms.TextBox usernameTextbox;
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button submitCredentialsButton;
+        private System.Windows.Forms.Label languageLabel;
     }
 }
 
