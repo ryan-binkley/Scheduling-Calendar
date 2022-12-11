@@ -38,6 +38,7 @@ namespace C969_Binkley
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.submitCredentialsButton = new System.Windows.Forms.Button();
             this.languageLabel = new System.Windows.Forms.Label();
+            this.loginErrorLabel = new System.Windows.Forms.Label();
             this.timePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,11 +135,27 @@ namespace C969_Binkley
             this.languageLabel.Text = "This log-in form is available in English and Spanish";
             this.languageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // loginErrorLabel
+            // 
+            this.loginErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loginErrorLabel.AutoSize = true;
+            this.loginErrorLabel.CausesValidation = false;
+            this.loginErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.loginErrorLabel.Location = new System.Drawing.Point(80, 289);
+            this.loginErrorLabel.Name = "loginErrorLabel";
+            this.loginErrorLabel.Size = new System.Drawing.Size(96, 24);
+            this.loginErrorLabel.TabIndex = 8;
+            this.loginErrorLabel.Text = "errorLabel";
+            this.loginErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginErrorLabel.Visible = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.loginErrorLabel);
             this.Controls.Add(this.languageLabel);
             this.Controls.Add(this.submitCredentialsButton);
             this.Controls.Add(this.passwordTextbox);
@@ -167,6 +184,7 @@ namespace C969_Binkley
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button submitCredentialsButton;
         private System.Windows.Forms.Label languageLabel;
+        private System.Windows.Forms.Label loginErrorLabel;
     }
 }
 
