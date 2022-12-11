@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace C969_Binkley
 {
-	public partial class LoginForm : Form
-	{
-		public LoginForm()
-		{
-			InitializeComponent();
-		}
-
-
+    public partial class Calender_Month : Form
+    {
+        public Calender_Month()
+        {
+            InitializeComponent();
+        }
     }
 }
