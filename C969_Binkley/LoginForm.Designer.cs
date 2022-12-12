@@ -140,14 +140,13 @@ namespace C969_Binkley
             // 
             // loginErrorLabel
             // 
-            this.loginErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginErrorLabel.AutoSize = true;
+            this.loginErrorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.loginErrorLabel.CausesValidation = false;
             this.loginErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.loginErrorLabel.Location = new System.Drawing.Point(80, 289);
+            this.loginErrorLabel.Location = new System.Drawing.Point(0, 308);
             this.loginErrorLabel.Name = "loginErrorLabel";
-            this.loginErrorLabel.Size = new System.Drawing.Size(96, 24);
+            this.loginErrorLabel.Size = new System.Drawing.Size(584, 24);
             this.loginErrorLabel.TabIndex = 8;
             this.loginErrorLabel.Text = "errorLabel";
             this.loginErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
