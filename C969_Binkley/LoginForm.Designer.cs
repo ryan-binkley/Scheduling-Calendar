@@ -124,6 +124,7 @@ namespace C969_Binkley
             this.submitCredentialsButton.TabIndex = 6;
             this.submitCredentialsButton.Text = "Submit";
             this.submitCredentialsButton.UseVisualStyleBackColor = true;
+            this.submitCredentialsButton.Click += new System.EventHandler(this.submitCredentialsButton_Click);
             // 
             // languageLabel
             // 
