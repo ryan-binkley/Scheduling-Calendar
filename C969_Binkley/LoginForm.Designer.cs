@@ -40,12 +40,16 @@ namespace C969_Binkley
             this.languageLabel = new System.Windows.Forms.Label();
             this.loginErrorLabel = new System.Windows.Forms.Label();
             this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
+            this.currentTimeTimer = new System.Windows.Forms.Label();
+            this.UTCTimeTimer = new System.Windows.Forms.Label();
             this.timePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // timePanel
             // 
             this.timePanel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.timePanel.Controls.Add(this.UTCTimeTimer);
+            this.timePanel.Controls.Add(this.currentTimeTimer);
             this.timePanel.Controls.Add(this.timePanelUTCTimeLabel);
             this.timePanel.Controls.Add(this.timePanelCurrentTimeLabel);
             this.timePanel.Location = new System.Drawing.Point(0, 0);
@@ -164,6 +168,30 @@ namespace C969_Binkley
             this.timePanelUTCTimeLabel.TabIndex = 1;
             this.timePanelUTCTimeLabel.Text = "UTC Time:";
             // 
+            // currentTimeTimer
+            // 
+            this.currentTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.currentTimeTimer.AutoSize = true;
+            this.currentTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.currentTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
+            this.currentTimeTimer.Location = new System.Drawing.Point(2, 25);
+            this.currentTimeTimer.Name = "currentTimeTimer";
+            this.currentTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.currentTimeTimer.TabIndex = 2;
+            this.currentTimeTimer.Text = "0";
+            // 
+            // UTCTimeTimer
+            // 
+            this.UTCTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UTCTimeTimer.AutoSize = true;
+            this.UTCTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UTCTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
+            this.UTCTimeTimer.Location = new System.Drawing.Point(2, 70);
+            this.UTCTimeTimer.Name = "UTCTimeTimer";
+            this.UTCTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.UTCTimeTimer.TabIndex = 3;
+            this.UTCTimeTimer.Text = "0";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +228,8 @@ namespace C969_Binkley
         private System.Windows.Forms.Label languageLabel;
         private System.Windows.Forms.Label loginErrorLabel;
         private System.Windows.Forms.Label timePanelUTCTimeLabel;
+        private System.Windows.Forms.Label currentTimeTimer;
+        private System.Windows.Forms.Label UTCTimeTimer;
     }
 }
 

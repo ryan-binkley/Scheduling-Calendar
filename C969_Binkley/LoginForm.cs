@@ -21,6 +21,7 @@ namespace C969_Binkley
 		public LoginForm()
 		{
 			InitializeComponent();
+			StartTimer();
 		}
 
 		// Event handler for submit button on LoginForm
@@ -154,6 +155,25 @@ namespace C969_Binkley
 				return null;
 			}
 		}
+	
+		// Void -> Void
+		// This function sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
+		private void StartTimer()
+		{
+			Timer tmr = null;
 
+			tmr = new Timer();
+			tmr.Interval = 1000;
+			tmr.Tick += new EventHandler(tmr_Tick);
+			tmr.Enabled = true;
+		}
+
+		// Event Handler
+		// Event handler to handle the timer
+		void tmr_Tick(object sender, EventArgs e)
+		{
+			currentTimeTimer.Text = DateTime.Now.ToString();
+			UTCTimeTimer.Text = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString();
+		}
     }
 }

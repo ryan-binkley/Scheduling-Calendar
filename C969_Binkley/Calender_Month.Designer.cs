@@ -32,6 +32,8 @@ namespace C969_Binkley
             this.timePanelCurrentTimeLabel = new System.Windows.Forms.Label();
             this.timePanel = new System.Windows.Forms.Panel();
             this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
+            this.currentTimeTimer = new System.Windows.Forms.Label();
+            this.UTCTimeTimer = new System.Windows.Forms.Label();
             this.timePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +52,8 @@ namespace C969_Binkley
             // timePanel
             // 
             this.timePanel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.timePanel.Controls.Add(this.UTCTimeTimer);
+            this.timePanel.Controls.Add(this.currentTimeTimer);
             this.timePanel.Controls.Add(this.timePanelUTCTimeLabel);
             this.timePanel.Controls.Add(this.timePanelCurrentTimeLabel);
             this.timePanel.Location = new System.Drawing.Point(0, 0);
@@ -69,11 +73,35 @@ namespace C969_Binkley
             this.timePanelUTCTimeLabel.TabIndex = 1;
             this.timePanelUTCTimeLabel.Text = "UTC Time:";
             // 
+            // currentTimeTimer
+            // 
+            this.currentTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.currentTimeTimer.AutoSize = true;
+            this.currentTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.currentTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
+            this.currentTimeTimer.Location = new System.Drawing.Point(2, 25);
+            this.currentTimeTimer.Name = "currentTimeTimer";
+            this.currentTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.currentTimeTimer.TabIndex = 3;
+            this.currentTimeTimer.Text = "0";
+            // 
+            // UTCTimeTimer
+            // 
+            this.UTCTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UTCTimeTimer.AutoSize = true;
+            this.UTCTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UTCTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
+            this.UTCTimeTimer.Location = new System.Drawing.Point(2, 70);
+            this.UTCTimeTimer.Name = "UTCTimeTimer";
+            this.UTCTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.UTCTimeTimer.TabIndex = 4;
+            this.UTCTimeTimer.Text = "0";
+            // 
             // Calender_Month
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 511);
+            this.ClientSize = new System.Drawing.Size(1184, 861);
             this.Controls.Add(this.timePanel);
             this.Name = "Calender_Month";
             this.Text = "Calender-Month";
@@ -88,5 +116,7 @@ namespace C969_Binkley
         private System.Windows.Forms.Label timePanelCurrentTimeLabel;
         private System.Windows.Forms.Panel timePanel;
         private System.Windows.Forms.Label timePanelUTCTimeLabel;
+        private System.Windows.Forms.Label currentTimeTimer;
+        private System.Windows.Forms.Label UTCTimeTimer;
     }
 }
