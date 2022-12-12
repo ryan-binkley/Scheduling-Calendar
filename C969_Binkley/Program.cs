@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Binkley.Database;
 
 namespace C969_Binkley
 {
@@ -16,7 +17,10 @@ namespace C969_Binkley
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+			DBConnection.startConnection();
 			Application.Run(new LoginForm());
+			DBConnection.closeConnection();
 		}
 	}
 }

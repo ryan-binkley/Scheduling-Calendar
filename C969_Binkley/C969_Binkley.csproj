@@ -90,6 +90,7 @@
     <Compile Include="Calender_Month.Designer.cs">
       <DependentUpon>Calender_Month.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
