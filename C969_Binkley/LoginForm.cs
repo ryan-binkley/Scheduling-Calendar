@@ -12,6 +12,8 @@ using MySql.Data.MySqlClient;
 using C969_Binkley.Database;
 using System.IO;
 using System.Globalization;
+using System.Threading;
+using System.Resources;
 
 namespace C969_Binkley
 {
@@ -19,14 +21,17 @@ namespace C969_Binkley
 	{
 		Calender_Month calendar_month = new Calender_Month();
 		static string user;
-		
+
 
 		public LoginForm()
 		{
+			if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("es");
+			else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+				Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en");
+
 			InitializeComponent();
 			StartTimer();
-
-			CultureInfo.CurrentCulture = new CultureInfo("es");
 		}
 
 		// Event handler for submit button on LoginForm
@@ -87,7 +92,15 @@ namespace C969_Binkley
 				// If the connection is not open, inform user and return false to get out of the function call
 				if (!(sqlConnection.State == ConnectionState.Open))
 				{
-					MessageBox.Show("Connection to Database is closed.", "Connection Error");
+					if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+					{
+						MessageBox.Show("Connection to Database is closed.", "Connection Error");
+					}
+					else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+					{
+						MessageBox.Show("La conexión a la base de datos está cerrada.", "Error de conexión");
+					}
+
 					return false;
 				}
 				
@@ -122,7 +135,15 @@ namespace C969_Binkley
 			// If an error occurs, show a messagebox informing the user of the error and return false
 			catch (MySqlException exception)
             {
-				MessageBox.Show(exception.Message, "User Exists Error");
+				if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+				{
+					MessageBox.Show(exception.Message, "User Exists Error");
+				}
+				else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				{
+					MessageBox.Show(exception.Message, "El usuario existe error");
+				}
+
 				return false;
             }
 		}
@@ -139,7 +160,14 @@ namespace C969_Binkley
 				// If the connection is not open, inform user and return null to get out of the function call
 				if (!(sqlConnection.State == ConnectionState.Open))
 				{
-					MessageBox.Show("Connection to Database is closed.", "Connection Error");
+					if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+					{
+						MessageBox.Show("Connection to Database is closed.", "Connection Error");
+					}
+					else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+					{
+						MessageBox.Show("La conexión a la base de datos está cerrada.", "Error de conexión");
+					}
 					return null;
 				}
 
@@ -176,7 +204,15 @@ namespace C969_Binkley
 			// If an error occurs, show a messagebox informing the user of the error and return null
 			catch (MySqlException exception)
 			{
-				MessageBox.Show(exception.Message, "User Exists Error");
+				if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+				{
+					MessageBox.Show(exception.Message, "User Exists Error");
+				}
+				else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				{
+					MessageBox.Show(exception.Message, "El usuario existe error");
+				}
+
 				return null;
 			}
 		}
@@ -185,9 +221,9 @@ namespace C969_Binkley
 		// This function sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
 		private void StartTimer()
 		{
-			Timer timer = null;
+			System.Windows.Forms.Timer timer = null;
 
-			timer = new Timer();
+			timer = new System.Windows.Forms.Timer();
 			timer.Interval = 1000;
 			timer.Tick += new EventHandler(timer_Tick);
 			timer.Enabled = true;

@@ -25,7 +25,7 @@ namespace C969_Binkley
 		// This function sets up a timer and adds a one second update interval and the timer_Tick event handler to it
 		private void StartTimer()
 		{
-			Timer timer = null;
+			System.Windows.Forms.Timer timer = null;
 
 			timer = new Timer();
 			timer.Interval = 1000;
