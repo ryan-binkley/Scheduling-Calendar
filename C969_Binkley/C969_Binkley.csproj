@@ -102,6 +102,9 @@
     <EmbeddedResource Include="Calender_Month.resx">
       <DependentUpon>Calender_Month.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.es.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

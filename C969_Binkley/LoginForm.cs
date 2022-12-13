@@ -11,6 +11,7 @@ using System.Configuration;
 using MySql.Data.MySqlClient;
 using C969_Binkley.Database;
 using System.IO;
+using System.Globalization;
 
 namespace C969_Binkley
 {
@@ -18,21 +19,33 @@ namespace C969_Binkley
 	{
 		Calender_Month calendar_month = new Calender_Month();
 		static string user;
+		
 
 		public LoginForm()
 		{
 			InitializeComponent();
 			StartTimer();
+
+			CultureInfo.CurrentCulture = new CultureInfo("es");
 		}
 
 		// Event handler for submit button on LoginForm
         private void submitCredentialsButton_Click(object sender, EventArgs e)
         {
+			
 			if (!UserExists())
             {
 				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, false);
 				loginErrorLabel.Visible = true;
-				loginErrorLabel.Text = "User does not exist.";
+				if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+                {
+					loginErrorLabel.Text = "User does not exist.";
+				}
+				else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				{
+					loginErrorLabel.Text = "El usuario no existe.";
+				}
+				
 				return;
             }
 
@@ -50,7 +63,15 @@ namespace C969_Binkley
             {
 				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, false);
 				loginErrorLabel.Visible = true;
-				loginErrorLabel.Text = "Username and Password do not match.";
+
+				if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+				{
+					loginErrorLabel.Text = "Username and Password do not match.";
+				}
+				else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				{
+					loginErrorLabel.Text = "Nombre de usuario y contraseña no coinciden.";
+				}
             }
 		}
 
