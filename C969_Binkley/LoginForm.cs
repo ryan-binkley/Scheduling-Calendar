@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using C969_Binkley.Database;
+using System.IO;
 
 namespace C969_Binkley
 {
@@ -29,6 +30,7 @@ namespace C969_Binkley
         {
 			if (!UserExists())
             {
+				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, false);
 				loginErrorLabel.Visible = true;
 				loginErrorLabel.Text = "User does not exist.";
 				return;
@@ -40,11 +42,13 @@ namespace C969_Binkley
 			// If the password textbox contains the correct password, continue onto the calendar form
 			if (passwordTextbox.Text == GrabPasswordFromDatabase())
             {
+				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, true);
 				calendar_month.Visible = true;
 				this.Visible = false;
             }
 			else
             {
+				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, false);
 				loginErrorLabel.Visible = true;
 				loginErrorLabel.Text = "Username and Password do not match.";
             }
@@ -52,7 +56,7 @@ namespace C969_Binkley
 
 		// Void -> Boolean
 		// This function returns true if the user in the textbox 'exists' in the database, returns false if it doesn't
-		public bool UserExists()
+		private bool UserExists()
         {
 			// Create a local reference to the Sql Connection in the DBConnection class
 			MySqlConnection sqlConnection = DBConnection.sqlConnection;
@@ -104,7 +108,7 @@ namespace C969_Binkley
 
 		// Void -> String
 		// This function grabs the password of the user from the username textbox if it exists
-		public string GrabPasswordFromDatabase()
+		private string GrabPasswordFromDatabase()
         {
 			// Create a local reference to the Sql Connection in the DBConnection class
 			MySqlConnection sqlConnection = DBConnection.sqlConnection;
@@ -160,20 +164,48 @@ namespace C969_Binkley
 		// This function sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
 		private void StartTimer()
 		{
-			Timer tmr = null;
+			Timer timer = null;
 
-			tmr = new Timer();
-			tmr.Interval = 1000;
-			tmr.Tick += new EventHandler(tmr_Tick);
-			tmr.Enabled = true;
+			timer = new Timer();
+			timer.Interval = 1000;
+			timer.Tick += new EventHandler(timer_Tick);
+			timer.Enabled = true;
 		}
 
 		// Event Handler
 		// Event handler to handle the timer
-		void tmr_Tick(object sender, EventArgs e)
+		void timer_Tick(object sender, EventArgs e)
 		{
 			currentTimeTimer.Text = DateTime.Now.ToString();
 			UTCTimeTimer.Text = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString();
 		}
+
+		// String String Boolean -> Void
+		// This function takes in the username string, the password string and a boolean and
+		// depending on whether or not the authentication was successful or not, logs the authentication result
+		private void LogAuthentication(string username, string password, bool success)
+        {
+			if (!File.Exists("..\\..\\logs\\authenticationLog.txt"))
+            {
+				File.Create("..\\..\\logs\\authenticationLog.txt");
+            }
+
+			FileStream authLog = new FileStream("..\\..\\logs\\authenticationLog.txt", FileMode.Append, FileAccess.Write);
+
+			if (success == true)
+            {
+				StreamWriter authCreds = new StreamWriter(authLog);
+				authCreds.WriteLine("User '" + usernameTextbox.Text + "' has authenticated successfully at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString());
+				authCreds.Close();
+            }
+            else
+            {
+				StreamWriter authCreds = new StreamWriter(authLog);
+				authCreds.WriteLine("User '" + usernameTextbox.Text + "' & Password '" + passwordTextbox.Text + "' has attempted to authenticate at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString());
+				authCreds.Close();
+			}
+
+			authLog.Close();
+        }
     }
 }

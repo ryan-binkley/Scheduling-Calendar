@@ -22,20 +22,20 @@ namespace C969_Binkley
 
 
 		// Void -> Void
-		// This function sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
+		// This function sets up a timer and adds a one second update interval and the timer_Tick event handler to it
 		private void StartTimer()
 		{
-			Timer tmr = null;
+			Timer timer = null;
 
-			tmr = new Timer();
-			tmr.Interval = 1000;
-			tmr.Tick += new EventHandler(tmr_Tick);
-			tmr.Enabled = true;
+			timer = new Timer();
+			timer.Interval = 1000;
+			timer.Tick += new EventHandler(timer_Tick);
+			timer.Enabled = true;
 		}
 
 		// Event Handler
 		// Event handler to handle the timer
-		void tmr_Tick(object sender, EventArgs e)
+		void timer_Tick(object sender, EventArgs e)
 		{
 			currentTimeTimer.Text = DateTime.Now.ToString();
 			UTCTimeTimer.Text = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString();

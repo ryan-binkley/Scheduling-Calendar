@@ -76,26 +76,26 @@ namespace C969_Binkley
             // currentTimeTimer
             // 
             this.currentTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.currentTimeTimer.AutoSize = true;
             this.currentTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.currentTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
             this.currentTimeTimer.Location = new System.Drawing.Point(2, 25);
             this.currentTimeTimer.Name = "currentTimeTimer";
-            this.currentTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.currentTimeTimer.Size = new System.Drawing.Size(135, 15);
             this.currentTimeTimer.TabIndex = 3;
             this.currentTimeTimer.Text = "0";
+            this.currentTimeTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UTCTimeTimer
             // 
             this.UTCTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UTCTimeTimer.AutoSize = true;
             this.UTCTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.UTCTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
             this.UTCTimeTimer.Location = new System.Drawing.Point(2, 70);
             this.UTCTimeTimer.Name = "UTCTimeTimer";
-            this.UTCTimeTimer.Size = new System.Drawing.Size(14, 15);
+            this.UTCTimeTimer.Size = new System.Drawing.Size(135, 15);
             this.UTCTimeTimer.TabIndex = 4;
             this.UTCTimeTimer.Text = "0";
+            this.UTCTimeTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Calender_Month
             // 
