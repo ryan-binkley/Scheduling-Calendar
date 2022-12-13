@@ -16,7 +16,6 @@ namespace C969_Binkley
         {
             InitializeComponent();
 			StartTimer();
-
 		}
 
 
