@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseObjects\Address.cs" />
     <Compile Include="DatabaseObjects\Appointment.cs" />
     <Compile Include="Calender.cs">
       <SubType>Form</SubType>
