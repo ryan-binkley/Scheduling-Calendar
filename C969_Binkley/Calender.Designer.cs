@@ -1,7 +1,7 @@
 ﻿
 namespace C969_Binkley
 {
-    partial class Calender_Month
+    partial class Calender
     {
         /// <summary>
         /// Required designer variable.

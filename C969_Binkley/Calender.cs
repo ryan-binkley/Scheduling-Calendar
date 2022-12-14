@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace C969_Binkley
 {
-    public partial class Calender_Month : Form
+    public partial class Calender : Form
     {
-        public Calender_Month()
+        public Calender()
         {
             InitializeComponent();
 			StartTimer();

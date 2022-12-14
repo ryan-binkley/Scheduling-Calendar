@@ -85,11 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
-    <Compile Include="Calender_Month.cs">
+    <Compile Include="Calender.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calender_Month.Designer.cs">
-      <DependentUpon>Calender_Month.cs</DependentUpon>
+    <Compile Include="Calender.Designer.cs">
+      <DependentUpon>Calender.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
@@ -100,8 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Calender_Month.resx">
-      <DependentUpon>Calender_Month.cs</DependentUpon>
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="Calender.resx">
+      <DependentUpon>Calender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.es.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
