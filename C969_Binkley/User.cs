@@ -8,6 +8,11 @@ namespace C969_Binkley
 {
     class User
     {
+        public User(int Id)
+        {
+            UserId = Id;
+        }
+
         private int userId;
         public int UserId
         {

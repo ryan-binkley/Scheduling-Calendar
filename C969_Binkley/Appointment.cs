@@ -8,6 +8,16 @@ namespace C969_Binkley
 {
     class Appointment
     {
+        public Appointment(int apptID, int custID, int userID, string apptType, DateTime apptStart, DateTime apptEnd)
+        {
+            AppointmentId = apptID;
+            CustomerId = custID;
+            UserId = userID;
+            Type = apptType;
+            Start = apptStart;
+            End = apptEnd;
+        }
+
         private int appointmentId;
         public int AppointmentId
         {
