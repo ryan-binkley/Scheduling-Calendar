@@ -16,7 +16,7 @@ namespace C969_Binkley
 	{
 		Calender calendar_month = new Calender();
 		static string user;
-
+		static User currentUser;
 		
 		public LoginForm()
 		{
@@ -58,6 +58,7 @@ namespace C969_Binkley
 				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, true);
 				calendar_month.Visible = true;
 				this.Visible = false;
+				currentUser = GetUser(user);
             }
 			else
             {
@@ -259,5 +260,75 @@ namespace C969_Binkley
 
 			authLog.Close();
         }
+
+		// string -> User
+		// This function grabs the user based on the input string for the username
+		private User GetUser(string username)
+        {
+			// Create a local reference to the Sql Connection in the DBConnection class
+			MySqlConnection sqlConnection = DBConnection.sqlConnection;
+
+			try
+			{
+				// If the connection is not open, inform user and return null to get out of the function call
+				if (!(sqlConnection.State == ConnectionState.Open))
+				{
+					if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+					{
+						MessageBox.Show("Connection to Database is closed.", "Connection Error");
+					}
+					else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+					{
+						MessageBox.Show("La conexión a la base de datos está cerrada.", "Error de conexión");
+					}
+					return null;
+				}
+
+				// Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+				MySqlCommand mySqlCmd = new MySqlCommand("SELECT userId FROM user WHERE userName=@username", sqlConnection);
+
+				// User MySql parameter to specify 'WHERE' clause using user for the username
+				mySqlCmd.Parameters.AddWithValue("@username", user);
+
+				// Create a SqlDataReader to execute and read the output of the SqlCommand
+				MySqlDataReader sqlReader = mySqlCmd.ExecuteReader();
+
+				// Create int variable to hold each of the results of the sql command
+				int userId;
+
+				// While there is a 'record' after the one it is on, continue to the next record
+				while (sqlReader.Read())
+				{
+					// Get the one entry that is the userId corresponding to the username
+					userId = sqlReader.GetInt32("userId");
+
+					// Close sqlReader so repeated attempts do not cause an exception
+					sqlReader.Close();
+
+					User userToReturn = new User(userId);
+
+					return userToReturn;
+				}
+				sqlReader.Close();
+
+				// If the code does not find a userId, return null
+				return null;
+			}
+
+			// If an error occurs, show a messagebox informing the user of the error and return null
+			catch (MySqlException exception)
+			{
+				if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+				{
+					MessageBox.Show(exception.Message, "User Exists Error");
+				}
+				else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
+				{
+					MessageBox.Show(exception.Message, "El usuario existe error");
+				}
+
+				return null;
+			}
+		}
     }
 }

@@ -7,9 +7,9 @@ D.   Provide the ability to view the calendar by month and by week and by all ap
 E.   Provide the ability to automatically adjust appointment times based on user time zones and daylight-saving time. Convert times when inserting into/extracting from the database.
 
 F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
-    •   scheduling an appointment outside business hours
-    •   scheduling overlapping appointments
-    •   entering nonexistent or invalid customer data
+    •   scheduling an appointment outside business hours (Set reasonable business hours 9-5 7 days a week)
+    •   scheduling overlapping appointments (ONLY user cannot be in two appts at one time)
+    •   entering nonexistent or invalid customer data(blank text)
 
 G.  Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
 
