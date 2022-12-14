@@ -91,6 +91,7 @@
     <Compile Include="Calender.Designer.cs">
       <DependentUpon>Calender.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseObjects\Country.cs" />
     <Compile Include="DatabaseObjects\Customer.cs" />
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
