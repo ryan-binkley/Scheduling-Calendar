@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs" />
     <Compile Include="Calender_Month.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

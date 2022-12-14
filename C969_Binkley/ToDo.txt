@@ -1,0 +1,21 @@
+﻿B.  Provide the ability to add, update, and delete customer records in the database, including name, address, phone number, city name, and country.
+
+C.   Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database. 'a link to the specific customer record in the database' is a fancy way of saying customer id. Minimum data for user input should be type, customer, & schedule time.
+
+D.   Provide the ability to view the calendar by month and by week and by all appointments. A data grid view list can be used! 
+
+E.   Provide the ability to automatically adjust appointment times based on user time zones and daylight-saving time. Convert times when inserting into/extracting from the database.
+
+F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
+    •   scheduling an appointment outside business hours
+    •   scheduling overlapping appointments
+    •   entering nonexistent or invalid customer data
+
+G.  Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
+
+H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in.
+
+I.   Provide the ability to generate each of the following reports using the collection classes:
+•   number of appointment types by month
+•   the schedule for each consultant
+•   one additional report of your choice

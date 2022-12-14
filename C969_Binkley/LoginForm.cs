@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
@@ -13,7 +9,6 @@ using C969_Binkley.Database;
 using System.IO;
 using System.Globalization;
 using System.Threading;
-using System.Resources;
 
 namespace C969_Binkley
 {
