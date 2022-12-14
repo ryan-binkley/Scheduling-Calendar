@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using C969_Binkley.DatabaseObjects;
 
 namespace C969_Binkley
 {
     class Appointment
     {
-        public Appointment(int apptID, int custID, int userID, string apptType, DateTime apptStart, DateTime apptEnd)
+        int uniqueID = 1;
+
+        public Appointment(int apptID, Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
         {
             AppointmentId = apptID;
-            CustomerId = custID;
-            UserId = userID;
+            Customer = inpCustomer;
+            User = inpUser;
             Type = apptType;
             Start = apptStart;
             End = apptEnd;
+
+            uniqueID++;
         }
 
         private int appointmentId;
@@ -25,18 +30,18 @@ namespace C969_Binkley
             set { appointmentId = value; }
         }
 
-        private int customerId;
-        public int CustomerId
+        private Customer customer;
+        public Customer Customer
         {
-            get { return customerId; }
-            set { customerId = value; }
+            get { return customer; }
+            set { customer = value; }
         }
 
-        private int userId;
-        public int UserId
+        private User user;
+        public User User
         {
-            get { return userId; }
-            set { userId = value; }
+            get { return user; }
+            set { user = value; }
         }
 
         private string type;
