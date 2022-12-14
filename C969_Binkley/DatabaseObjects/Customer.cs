@@ -27,5 +27,12 @@ namespace C969_Binkley.DatabaseObjects
             get { return customerName; }
             set { customerName = value; }
         }
+
+        private Address address;
+        public Address Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
     }
 }
