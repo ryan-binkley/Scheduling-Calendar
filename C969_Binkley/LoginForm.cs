@@ -22,7 +22,7 @@ namespace C969_Binkley
 		Calender_Month calendar_month = new Calender_Month();
 		static string user;
 
-
+		
 		public LoginForm()
 		{
 			if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
@@ -252,13 +252,13 @@ namespace C969_Binkley
 			if (success == true)
             {
 				StreamWriter authCreds = new StreamWriter(authLog);
-				authCreds.WriteLine("User '" + usernameTextbox.Text + "' has authenticated successfully at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString());
+				authCreds.WriteLine("User '" + usernameTextbox.Text + "' has authenticated successfully at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString() + " UTC");
 				authCreds.Close();
             }
             else
             {
 				StreamWriter authCreds = new StreamWriter(authLog);
-				authCreds.WriteLine("User '" + usernameTextbox.Text + "' & Password '" + passwordTextbox.Text + "' has attempted to authenticate at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString());
+				authCreds.WriteLine("User '" + usernameTextbox.Text + "' & Password '" + passwordTextbox.Text + "' has attempted to authenticate at " + TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString() + " UTC");
 				authCreds.Close();
 			}
 
