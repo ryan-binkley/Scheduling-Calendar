@@ -118,32 +118,39 @@ namespace C969_Binkley
             this.appointmentCalendarDataGridView.Location = new System.Drawing.Point(200, 197);
             this.appointmentCalendarDataGridView.MultiSelect = false;
             this.appointmentCalendarDataGridView.Name = "appointmentCalendarDataGridView";
+            this.appointmentCalendarDataGridView.RowHeadersVisible = false;
+            this.appointmentCalendarDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.appointmentCalendarDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentCalendarDataGridView.Size = new System.Drawing.Size(769, 381);
-            this.appointmentCalendarDataGridView.TabIndex = 2;
+            this.appointmentCalendarDataGridView.TabIndex = 0;
             // 
             // ApptDate
             // 
+            this.ApptDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ApptDate.HeaderText = "Appt. Date";
             this.ApptDate.Name = "ApptDate";
             // 
             // ApptTime
             // 
+            this.ApptTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ApptTime.HeaderText = "Appt. Time";
             this.ApptTime.Name = "ApptTime";
             // 
             // User
             // 
+            this.User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.User.HeaderText = "Consultant";
             this.User.Name = "User";
             // 
             // Customer
             // 
+            this.Customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Customer.HeaderText = "Customer";
             this.Customer.Name = "Customer";
             // 
             // Type
             // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             // 
