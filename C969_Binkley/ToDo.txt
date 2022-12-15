@@ -13,9 +13,9 @@ F.   Write exception controls to prevent each of the following. You may use the 
 
 G.  Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
 
-H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in.
+H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
 
-I.   Provide the ability to generate each of the following reports using the collection classes:
-•   number of appointment types by month
-•   the schedule for each consultant
+I.   Provide the ability to generate each of the following reports:
+•   number of appointment types by month - Given a type and a month, how many appts match this? Not a list, a count.
+•   the schedule for each user 
 •   one additional report of your choice
