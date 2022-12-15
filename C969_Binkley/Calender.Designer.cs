@@ -31,10 +31,17 @@ namespace C969_Binkley
         {
             this.timePanelCurrentTimeLabel = new System.Windows.Forms.Label();
             this.timePanel = new System.Windows.Forms.Panel();
-            this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
-            this.currentTimeTimer = new System.Windows.Forms.Label();
             this.UTCTimeTimer = new System.Windows.Forms.Label();
+            this.currentTimeTimer = new System.Windows.Forms.Label();
+            this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
+            this.appointmentCalendarDataGridView = new System.Windows.Forms.DataGridView();
+            this.ApptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // timePanelCurrentTimeLabel
@@ -61,17 +68,17 @@ namespace C969_Binkley
             this.timePanel.Size = new System.Drawing.Size(140, 100);
             this.timePanel.TabIndex = 1;
             // 
-            // timePanelUTCTimeLabel
+            // UTCTimeTimer
             // 
-            this.timePanelUTCTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.timePanelUTCTimeLabel.AutoSize = true;
-            this.timePanelUTCTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timePanelUTCTimeLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.timePanelUTCTimeLabel.Location = new System.Drawing.Point(20, 45);
-            this.timePanelUTCTimeLabel.Name = "timePanelUTCTimeLabel";
-            this.timePanelUTCTimeLabel.Size = new System.Drawing.Size(101, 24);
-            this.timePanelUTCTimeLabel.TabIndex = 1;
-            this.timePanelUTCTimeLabel.Text = "UTC Time:";
+            this.UTCTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UTCTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UTCTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
+            this.UTCTimeTimer.Location = new System.Drawing.Point(2, 70);
+            this.UTCTimeTimer.Name = "UTCTimeTimer";
+            this.UTCTimeTimer.Size = new System.Drawing.Size(135, 15);
+            this.UTCTimeTimer.TabIndex = 4;
+            this.UTCTimeTimer.Text = "0";
+            this.UTCTimeTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // currentTimeTimer
             // 
@@ -85,28 +92,73 @@ namespace C969_Binkley
             this.currentTimeTimer.Text = "0";
             this.currentTimeTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // UTCTimeTimer
+            // timePanelUTCTimeLabel
             // 
-            this.UTCTimeTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UTCTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.UTCTimeTimer.ForeColor = System.Drawing.SystemColors.Window;
-            this.UTCTimeTimer.Location = new System.Drawing.Point(2, 70);
-            this.UTCTimeTimer.Name = "UTCTimeTimer";
-            this.UTCTimeTimer.Size = new System.Drawing.Size(135, 15);
-            this.UTCTimeTimer.TabIndex = 4;
-            this.UTCTimeTimer.Text = "0";
-            this.UTCTimeTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.timePanelUTCTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.timePanelUTCTimeLabel.AutoSize = true;
+            this.timePanelUTCTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timePanelUTCTimeLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.timePanelUTCTimeLabel.Location = new System.Drawing.Point(20, 45);
+            this.timePanelUTCTimeLabel.Name = "timePanelUTCTimeLabel";
+            this.timePanelUTCTimeLabel.Size = new System.Drawing.Size(101, 24);
+            this.timePanelUTCTimeLabel.TabIndex = 1;
+            this.timePanelUTCTimeLabel.Text = "UTC Time:";
             // 
-            // Calender_Month
+            // appointmentCalendarDataGridView
+            // 
+            this.appointmentCalendarDataGridView.AllowUserToAddRows = false;
+            this.appointmentCalendarDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.appointmentCalendarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appointmentCalendarDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ApptDate,
+            this.ApptTime,
+            this.User,
+            this.Customer,
+            this.Type});
+            this.appointmentCalendarDataGridView.Location = new System.Drawing.Point(200, 197);
+            this.appointmentCalendarDataGridView.MultiSelect = false;
+            this.appointmentCalendarDataGridView.Name = "appointmentCalendarDataGridView";
+            this.appointmentCalendarDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.appointmentCalendarDataGridView.Size = new System.Drawing.Size(769, 381);
+            this.appointmentCalendarDataGridView.TabIndex = 2;
+            // 
+            // ApptDate
+            // 
+            this.ApptDate.HeaderText = "Appt. Date";
+            this.ApptDate.Name = "ApptDate";
+            // 
+            // ApptTime
+            // 
+            this.ApptTime.HeaderText = "Appt. Time";
+            this.ApptTime.Name = "ApptTime";
+            // 
+            // User
+            // 
+            this.User.HeaderText = "Consultant";
+            this.User.Name = "User";
+            // 
+            // Customer
+            // 
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
+            // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 861);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.appointmentCalendarDataGridView);
             this.Controls.Add(this.timePanel);
-            this.Name = "Calender_Month";
+            this.Name = "Calender";
             this.Text = "Calender-Month";
             this.timePanel.ResumeLayout(false);
             this.timePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,5 +170,11 @@ namespace C969_Binkley
         private System.Windows.Forms.Label timePanelUTCTimeLabel;
         private System.Windows.Forms.Label currentTimeTimer;
         private System.Windows.Forms.Label UTCTimeTimer;
+        private System.Windows.Forms.DataGridView appointmentCalendarDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApptDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApptTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

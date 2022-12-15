@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C969_Binkley.DatabaseObjects
 {
-    class City
+    public class City
     {
         public City(int cityID, string cityName, Country country)
         {

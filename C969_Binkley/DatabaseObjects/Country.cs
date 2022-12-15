@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C969_Binkley.DatabaseObjects
 {
-    class Country
+    public class Country
     {
         public Country(int countryID, string countryName)
         {

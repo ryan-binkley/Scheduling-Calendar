@@ -7,7 +7,7 @@ using C969_Binkley.DatabaseObjects;
 
 namespace C969_Binkley
 {
-    class Appointment
+    public class Appointment
     {
         int uniqueID = 1;
 

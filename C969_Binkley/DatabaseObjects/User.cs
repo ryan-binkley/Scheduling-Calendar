@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C969_Binkley
 {
-    class User
+    public class User
     {
         public User(int Id)
         {

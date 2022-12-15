@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C969_Binkley.DatabaseObjects
 {
-    class Customer
+    public class Customer
     {
         public Customer(int custID, string custName)
         {
