@@ -8,6 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Address
     {
+        public Address()
+        {
+
+        }
         public Address(int addID, string addName, City inpCity, string inpPhone)
         {
             AddressId = addID;

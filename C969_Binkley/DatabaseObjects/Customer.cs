@@ -8,6 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
         public Customer(int custID, string custName)
         {
             CustomerId = custID;

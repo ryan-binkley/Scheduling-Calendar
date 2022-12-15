@@ -11,9 +11,13 @@ namespace C969_Binkley
     {
         int uniqueID = 1;
 
-        public Appointment(int apptID, Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
+        public Appointment()
         {
-            AppointmentId = apptID;
+            uniqueID++;
+        }
+        public Appointment(Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
+        {
+            AppointmentId = uniqueID;
             Customer = inpCustomer;
             User = inpUser;
             Type = apptType;
@@ -73,6 +77,16 @@ namespace C969_Binkley
         public string AppointmentTime
         {
             get { return start.TimeOfDay.ToString(); }
+        }
+
+        public string CustomerName
+        {
+            get { return Customer.CustomerName; }
+        }
+
+        public string UserName
+        {
+            get { return User.UserName; }
         }
     }
 }

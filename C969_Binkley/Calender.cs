@@ -11,6 +11,9 @@ namespace C969_Binkley
         {
             InitializeComponent();
 			StartTimer();
+			AppointmentList.appointments = AppointmentList.GetAllAppointments();
+			this.appointmentCalendarDataGridView.AutoGenerateColumns = false;
+			this.appointmentCalendarDataGridView.DataSource = AppointmentList.appointments;
 		}
 
 

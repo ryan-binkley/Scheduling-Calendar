@@ -35,10 +35,10 @@ namespace C969_Binkley
             this.currentTimeTimer = new System.Windows.Forms.Label();
             this.timePanelUTCTimeLabel = new System.Windows.Forms.Label();
             this.appointmentCalendarDataGridView = new System.Windows.Forms.DataGridView();
-            this.ApptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
@@ -110,49 +110,60 @@ namespace C969_Binkley
             this.appointmentCalendarDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.appointmentCalendarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appointmentCalendarDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ApptDate,
-            this.ApptTime,
-            this.User,
-            this.Customer,
+            this.AppointmentDay,
+            this.AppointmentTime,
+            this.UserName,
+            this.CustomerName,
             this.Type});
-            this.appointmentCalendarDataGridView.Location = new System.Drawing.Point(200, 197);
+            this.appointmentCalendarDataGridView.Location = new System.Drawing.Point(196, 197);
             this.appointmentCalendarDataGridView.MultiSelect = false;
             this.appointmentCalendarDataGridView.Name = "appointmentCalendarDataGridView";
+            this.appointmentCalendarDataGridView.ReadOnly = true;
             this.appointmentCalendarDataGridView.RowHeadersVisible = false;
             this.appointmentCalendarDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.appointmentCalendarDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentCalendarDataGridView.Size = new System.Drawing.Size(769, 381);
             this.appointmentCalendarDataGridView.TabIndex = 0;
             // 
-            // ApptDate
+            // AppointmentDay
             // 
-            this.ApptDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ApptDate.HeaderText = "Appt. Date";
-            this.ApptDate.Name = "ApptDate";
+            this.AppointmentDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AppointmentDay.DataPropertyName = "AppointmentDay";
+            this.AppointmentDay.HeaderText = "Appt. Date";
+            this.AppointmentDay.Name = "AppointmentDay";
+            this.AppointmentDay.ReadOnly = true;
             // 
-            // ApptTime
+            // AppointmentTime
             // 
-            this.ApptTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ApptTime.HeaderText = "Appt. Time";
-            this.ApptTime.Name = "ApptTime";
+            this.AppointmentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AppointmentTime.DataPropertyName = "AppointmentTime";
+            this.AppointmentTime.HeaderText = "Appt. Time";
+            this.AppointmentTime.Name = "AppointmentTime";
+            this.AppointmentTime.ReadOnly = true;
             // 
-            // User
+            // UserName
             // 
-            this.User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.User.HeaderText = "Consultant";
-            this.User.Name = "User";
+            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "Consultant";
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
             // 
-            // Customer
+            // CustomerName
             // 
-            this.Customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Customer.HeaderText = "Customer";
-            this.Customer.Name = "Customer";
+            this.CustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerName.DataPropertyName = "CustomerName";
+            this.CustomerName.HeaderText = "Customer";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
             // 
             // Type
             // 
             this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // Calender
             // 
@@ -178,10 +189,10 @@ namespace C969_Binkley
         private System.Windows.Forms.Label currentTimeTimer;
         private System.Windows.Forms.Label UTCTimeTimer;
         private System.Windows.Forms.DataGridView appointmentCalendarDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApptDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApptTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

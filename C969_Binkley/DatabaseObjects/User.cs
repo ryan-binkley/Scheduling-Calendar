@@ -8,6 +8,10 @@ namespace C969_Binkley
 {
     public class User
     {
+        public User()
+        {
+
+        }
         public User(int Id)
         {
             UserId = Id;
@@ -18,6 +22,13 @@ namespace C969_Binkley
         {
             get { return userId; }
             set { userId = value; }
+        }
+
+        private string userName;
+        public string UserName
+        {
+            get { return userName; }
+            set { userName = value; }
         }
     }
 }

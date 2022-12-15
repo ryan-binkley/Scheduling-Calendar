@@ -8,6 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Country
     {
+        public Country()
+        {
+
+        }
         public Country(int countryID, string countryName)
         {
             CountryId = countryID;
