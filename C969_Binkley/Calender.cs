@@ -54,19 +54,38 @@ namespace C969_Binkley
 		// This function will make the month label and buttons visible
 		public void ShowMonth()
         {
-			this.monthLabel.Text = CurrentDate.currentMonthDateTime.ToString("MMMM");
-			this.monthLabel.Visible = true;
-			this.prevMonthButton.Visible = true;
-			this.nextMonthButton.Visible = true;
+			this.dateLabel.Text = CurrentDate.currentMonthDateTime.ToString("MMMM");
+			this.dateLabel.Visible = true;
+			this.prevDateButton.Visible = true;
+			this.nextDateButton.Visible = true;
         }
 
 		// Void -> Void
 		// This function will make the month label and buttons not visible
 		public void DoNotShowMonth()
 		{
-			this.monthLabel.Visible = false;
-			this.prevMonthButton.Visible = false;
-			this.nextMonthButton.Visible = false;
+			this.dateLabel.Visible = false;
+			this.prevDateButton.Visible = false;
+			this.nextDateButton.Visible = false;
+		}
+
+		// Void -> Void
+		// This function will make the month label and buttons visible
+		public void ShowWeek()
+		{
+			this.dateLabel.Text = CurrentDate.currentWeekStartDateTime.ToString("M") + " - " + CurrentDate.currentWeekEndDateTime.ToString("M");
+			this.dateLabel.Visible = true;
+			this.prevDateButton.Visible = true;
+			this.nextDateButton.Visible = true;
+		}
+
+		// Void -> Void
+		// This function will make the month label and buttons not visible
+		public void DoNotShowWeek()
+		{
+			this.dateLabel.Visible = false;
+			this.prevDateButton.Visible = false;
+			this.nextDateButton.Visible = false;
 		}
 
 		// Event-handlers for radio buttons
@@ -75,15 +94,23 @@ namespace C969_Binkley
 			AppointmentList.appointments = AppointmentList.GetAllAppointments();
 			apptDGV.DataSource = AppointmentList.appointments;
 			DoNotShowMonth();
+			DoNotShowWeek();
         }
 
         private void monthAppointmentsRadioButton_MouseDown(object sender, MouseEventArgs e)
         {
 			CurrentDate.GetAppointmentsByMonth();
 			CurrentDate.SetAppointmentsByMonth(apptDGV);
+			DoNotShowWeek();
 			ShowMonth();
 		}
 
-
+        private void weekAppointmentsRadioButton_MouseDown(object sender, MouseEventArgs e)
+        {
+			CurrentDate.GetAppointmentsByWeek();
+			CurrentDate.SetAppointmentsByWeek(apptDGV);
+			DoNotShowMonth();
+			ShowWeek();
+		}
     }
 }

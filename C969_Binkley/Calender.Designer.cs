@@ -44,9 +44,9 @@ namespace C969_Binkley
             this.allAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
             this.monthAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
             this.weekAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
-            this.monthLabel = new System.Windows.Forms.Label();
-            this.nextMonthButton = new System.Windows.Forms.Button();
-            this.prevMonthButton = new System.Windows.Forms.Button();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.nextDateButton = new System.Windows.Forms.Button();
+            this.prevDateButton = new System.Windows.Forms.Button();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -221,51 +221,52 @@ namespace C969_Binkley
             this.weekAppointmentsRadioButton.TabStop = true;
             this.weekAppointmentsRadioButton.Text = "View By Week";
             this.weekAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            this.weekAppointmentsRadioButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.weekAppointmentsRadioButton_MouseDown);
             // 
-            // monthLabel
+            // dateLabel
             // 
-            this.monthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthLabel.Location = new System.Drawing.Point(493, 85);
-            this.monthLabel.Name = "monthLabel";
-            this.monthLabel.Size = new System.Drawing.Size(180, 37);
-            this.monthLabel.TabIndex = 5;
-            this.monthLabel.Text = "MonthLabel";
-            this.monthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.monthLabel.Visible = false;
+            this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(378, 85);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(411, 37);
+            this.dateLabel.TabIndex = 5;
+            this.dateLabel.Text = "MonthLabel";
+            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dateLabel.Visible = false;
             // 
-            // nextMonthButton
+            // nextDateButton
             // 
-            this.nextMonthButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nextMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.nextMonthButton.Location = new System.Drawing.Point(677, 93);
-            this.nextMonthButton.Name = "nextMonthButton";
-            this.nextMonthButton.Size = new System.Drawing.Size(23, 23);
-            this.nextMonthButton.TabIndex = 6;
-            this.nextMonthButton.Text = ">";
-            this.nextMonthButton.UseVisualStyleBackColor = true;
-            this.nextMonthButton.Visible = false;
+            this.nextDateButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nextDateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.nextDateButton.Location = new System.Drawing.Point(806, 78);
+            this.nextDateButton.Name = "nextDateButton";
+            this.nextDateButton.Size = new System.Drawing.Size(50, 50);
+            this.nextDateButton.TabIndex = 6;
+            this.nextDateButton.Text = ">";
+            this.nextDateButton.UseVisualStyleBackColor = true;
+            this.nextDateButton.Visible = false;
             // 
-            // prevMonthButton
+            // prevDateButton
             // 
-            this.prevMonthButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.prevMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.prevMonthButton.Location = new System.Drawing.Point(467, 93);
-            this.prevMonthButton.Name = "prevMonthButton";
-            this.prevMonthButton.Size = new System.Drawing.Size(23, 23);
-            this.prevMonthButton.TabIndex = 7;
-            this.prevMonthButton.Text = "<";
-            this.prevMonthButton.UseVisualStyleBackColor = true;
-            this.prevMonthButton.Visible = false;
+            this.prevDateButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.prevDateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.prevDateButton.Location = new System.Drawing.Point(311, 78);
+            this.prevDateButton.Name = "prevDateButton";
+            this.prevDateButton.Size = new System.Drawing.Size(50, 50);
+            this.prevDateButton.TabIndex = 7;
+            this.prevDateButton.Text = "<";
+            this.prevDateButton.UseVisualStyleBackColor = true;
+            this.prevDateButton.Visible = false;
             // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Controls.Add(this.prevMonthButton);
-            this.Controls.Add(this.nextMonthButton);
-            this.Controls.Add(this.monthLabel);
+            this.Controls.Add(this.prevDateButton);
+            this.Controls.Add(this.nextDateButton);
+            this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.weekAppointmentsRadioButton);
             this.Controls.Add(this.monthAppointmentsRadioButton);
             this.Controls.Add(this.allAppointmentsRadioButton);
@@ -298,8 +299,8 @@ namespace C969_Binkley
         private System.Windows.Forms.RadioButton allAppointmentsRadioButton;
         private System.Windows.Forms.RadioButton monthAppointmentsRadioButton;
         private System.Windows.Forms.RadioButton weekAppointmentsRadioButton;
-        private System.Windows.Forms.Label monthLabel;
-        private System.Windows.Forms.Button nextMonthButton;
-        private System.Windows.Forms.Button prevMonthButton;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Button nextDateButton;
+        private System.Windows.Forms.Button prevDateButton;
     }
 }
