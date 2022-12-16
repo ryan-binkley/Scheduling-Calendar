@@ -14,6 +14,7 @@ namespace C969_Binkley
 			AppointmentList.appointments = AppointmentList.GetAllAppointments();
 			this.appointmentCalendarDataGridView.AutoGenerateColumns = false;
 			this.appointmentCalendarDataGridView.DataSource = AppointmentList.appointments;
+			MessageBox.Show(AppointmentList.appointments[0].Customer.Address.City.Country.CountryName);
 		}
 
 
