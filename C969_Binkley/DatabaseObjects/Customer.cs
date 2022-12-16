@@ -8,14 +8,16 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Customer
     {
+        public int uniqueID = 0;
         public Customer()
         {
-
+            uniqueID++;
         }
         public Customer(int custID, string custName)
         {
             CustomerId = custID;
             CustomerName = custName;
+            uniqueID++;
         }
 
         private int customerId;
