@@ -37,5 +37,5 @@ namespace C969_Binkley
 			currentTimeTimer.Text = DateTime.Now.ToString();
 			UTCTimeTimer.Text = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("UTC")).ToString();
 		}
-	}
+    }
 }

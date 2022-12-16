@@ -41,6 +41,9 @@ namespace C969_Binkley
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
+            this.monthAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
+            this.weekAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -174,11 +177,54 @@ namespace C969_Binkley
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
             // 
+            // allAppointmentsRadioButton
+            // 
+            this.allAppointmentsRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.allAppointmentsRadioButton.AutoSize = true;
+            this.allAppointmentsRadioButton.Checked = true;
+            this.allAppointmentsRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.allAppointmentsRadioButton.Location = new System.Drawing.Point(257, 163);
+            this.allAppointmentsRadioButton.Name = "allAppointmentsRadioButton";
+            this.allAppointmentsRadioButton.Size = new System.Drawing.Size(170, 28);
+            this.allAppointmentsRadioButton.TabIndex = 2;
+            this.allAppointmentsRadioButton.TabStop = true;
+            this.allAppointmentsRadioButton.Text = "All Appointments";
+            this.allAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // monthAppointmentsRadioButton
+            // 
+            this.monthAppointmentsRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.monthAppointmentsRadioButton.AutoSize = true;
+            this.monthAppointmentsRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.monthAppointmentsRadioButton.Location = new System.Drawing.Point(507, 163);
+            this.monthAppointmentsRadioButton.Name = "monthAppointmentsRadioButton";
+            this.monthAppointmentsRadioButton.Size = new System.Drawing.Size(154, 28);
+            this.monthAppointmentsRadioButton.TabIndex = 3;
+            this.monthAppointmentsRadioButton.TabStop = true;
+            this.monthAppointmentsRadioButton.Text = "View By Month";
+            this.monthAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // weekAppointmentsRadioButton
+            // 
+            this.weekAppointmentsRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.weekAppointmentsRadioButton.AutoSize = true;
+            this.weekAppointmentsRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.weekAppointmentsRadioButton.Location = new System.Drawing.Point(746, 163);
+            this.weekAppointmentsRadioButton.Name = "weekAppointmentsRadioButton";
+            this.weekAppointmentsRadioButton.Size = new System.Drawing.Size(150, 28);
+            this.weekAppointmentsRadioButton.TabIndex = 4;
+            this.weekAppointmentsRadioButton.TabStop = true;
+            this.weekAppointmentsRadioButton.Text = "View By Week";
+            this.weekAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.weekAppointmentsRadioButton);
+            this.Controls.Add(this.monthAppointmentsRadioButton);
+            this.Controls.Add(this.allAppointmentsRadioButton);
             this.Controls.Add(this.appointmentCalendarDataGridView);
             this.Controls.Add(this.timePanel);
             this.Name = "Calender";
@@ -187,6 +233,7 @@ namespace C969_Binkley
             this.timePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -204,5 +251,8 @@ namespace C969_Binkley
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.RadioButton allAppointmentsRadioButton;
+        private System.Windows.Forms.RadioButton monthAppointmentsRadioButton;
+        private System.Windows.Forms.RadioButton weekAppointmentsRadioButton;
     }
 }
