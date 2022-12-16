@@ -12,6 +12,7 @@ namespace C969_Binkley.Database
     public class DBConnection
     {
 		public static MySqlConnection sqlConnection { get; set; }
+		public static string getAllRelevantInformation = "SELECT * FROM appointment JOIN user ON appointment.userId = user.userId JOIN customer ON appointment.customerId = customer.customerId JOIN address ON customer.addressId = address.addressId JOIN city ON address.cityId = city.cityId JOIN country ON city.countryId = country.countryId";
 
 		public static void startConnection()
         {

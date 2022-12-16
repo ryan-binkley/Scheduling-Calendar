@@ -38,5 +38,29 @@ namespace C969_Binkley.DatabaseObjects
             get { return address; }
             set { address = value; }
         }
+
+        public string AddressString
+        {
+            get { return Address.AddressName; }
+            set { Address.AddressName = value; }
+        }
+
+        public string Phone
+        {
+            get { return Address.Phone; }
+            set { Address.Phone = value; }
+        }
+
+        public string CityName
+        {
+            get { return Address.City.CityName; }
+            set { Address.City.CityName = value; }
+        }
+
+        public string CountryName
+        {
+            get { return Address.City.Country.CountryName; }
+            set { Address.City.Country.CountryName = value; }
+        }
     }
 }

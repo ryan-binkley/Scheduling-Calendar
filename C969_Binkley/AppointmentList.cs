@@ -51,7 +51,7 @@ namespace C969_Binkley
 				}
 
 				// Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
-				MySqlCommand mySqlCmd = new MySqlCommand("SELECT * FROM appointment JOIN user ON appointment.userId = user.userId JOIN customer ON appointment.customerId = customer.customerId JOIN address ON customer.addressId = address.addressId JOIN city ON address.cityId = city.cityId JOIN country ON city.countryId = country.countryId", sqlConnection);
+				MySqlCommand mySqlCmd = new MySqlCommand(DBConnection.getAllRelevantInformation, sqlConnection);
 
 				// Create a SqlDataReader to execute and read the output of the SqlCommand
 				MySqlDataReader sqlReader = mySqlCmd.ExecuteReader();
@@ -75,11 +75,11 @@ namespace C969_Binkley
 					apptToBeAddedToList.Start = sqlReader.GetDateTime("start");
 					apptToBeAddedToList.End = sqlReader.GetDateTime("end");
 					apptToBeAddedToList.Customer.Address = new Address();
-					apptToBeAddedToList.Customer.Address.AddressName = sqlReader.GetString("address");
+					apptToBeAddedToList.Customer.AddressString = sqlReader.GetString("address");
 					apptToBeAddedToList.Customer.Address.City = new City();
-					apptToBeAddedToList.Customer.Address.City.CityName = sqlReader.GetString("city");
+					apptToBeAddedToList.Customer.CityName = sqlReader.GetString("city");
 					apptToBeAddedToList.Customer.Address.City.Country = new Country();
-					apptToBeAddedToList.Customer.Address.City.Country.CountryName = sqlReader.GetString("country");
+					apptToBeAddedToList.Customer.CountryName = sqlReader.GetString("country");
 
 					listToReturn.Add(apptToBeAddedToList);
 				}
