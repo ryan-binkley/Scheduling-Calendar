@@ -54,7 +54,7 @@ namespace C969_Binkley
 		// This function will make the month label and buttons visible
 		public void ShowMonth()
         {
-			this.monthLabel.Text = Month.currentMonthDateTime.ToString("MMMM");
+			this.monthLabel.Text = CurrentDate.currentMonthDateTime.ToString("MMMM");
 			this.monthLabel.Visible = true;
 			this.prevMonthButton.Visible = true;
 			this.nextMonthButton.Visible = true;
@@ -79,8 +79,8 @@ namespace C969_Binkley
 
         private void monthAppointmentsRadioButton_MouseDown(object sender, MouseEventArgs e)
         {
-			Month.GetAppointmentsByMonth();
-			Month.SetAppointmentsByMonth(apptDGV);
+			CurrentDate.GetAppointmentsByMonth();
+			CurrentDate.SetAppointmentsByMonth(apptDGV);
 			ShowMonth();
 		}
 

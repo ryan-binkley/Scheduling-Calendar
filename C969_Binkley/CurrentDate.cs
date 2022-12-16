@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace C969_Binkley
 {
-    public static class Month
+    public static class CurrentDate
     {
         // Make a global static class representing what month it currently is
         public static DateTime currentMonthDateTime = new DateTime(2022, 1, 1);
