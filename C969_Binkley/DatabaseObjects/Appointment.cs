@@ -92,5 +92,10 @@ namespace C969_Binkley
         {
             get { return User.UserName; }
         }
+
+        public int AppointmentMonth
+        {
+            get { return start.Month; }
+        }
     }
 }

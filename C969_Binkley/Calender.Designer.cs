@@ -44,6 +44,9 @@ namespace C969_Binkley
             this.allAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
             this.monthAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
             this.weekAppointmentsRadioButton = new System.Windows.Forms.RadioButton();
+            this.monthLabel = new System.Windows.Forms.Label();
+            this.nextMonthButton = new System.Windows.Forms.Button();
+            this.prevMonthButton = new System.Windows.Forms.Button();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -190,6 +193,7 @@ namespace C969_Binkley
             this.allAppointmentsRadioButton.TabStop = true;
             this.allAppointmentsRadioButton.Text = "All Appointments";
             this.allAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            this.allAppointmentsRadioButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.allAppointmentsRadioButton_MouseDown);
             // 
             // monthAppointmentsRadioButton
             // 
@@ -203,6 +207,7 @@ namespace C969_Binkley
             this.monthAppointmentsRadioButton.TabStop = true;
             this.monthAppointmentsRadioButton.Text = "View By Month";
             this.monthAppointmentsRadioButton.UseVisualStyleBackColor = true;
+            this.monthAppointmentsRadioButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.monthAppointmentsRadioButton_MouseDown);
             // 
             // weekAppointmentsRadioButton
             // 
@@ -217,11 +222,50 @@ namespace C969_Binkley
             this.weekAppointmentsRadioButton.Text = "View By Week";
             this.weekAppointmentsRadioButton.UseVisualStyleBackColor = true;
             // 
+            // monthLabel
+            // 
+            this.monthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.monthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthLabel.Location = new System.Drawing.Point(493, 85);
+            this.monthLabel.Name = "monthLabel";
+            this.monthLabel.Size = new System.Drawing.Size(180, 37);
+            this.monthLabel.TabIndex = 5;
+            this.monthLabel.Text = "MonthLabel";
+            this.monthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.monthLabel.Visible = false;
+            // 
+            // nextMonthButton
+            // 
+            this.nextMonthButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nextMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.nextMonthButton.Location = new System.Drawing.Point(677, 93);
+            this.nextMonthButton.Name = "nextMonthButton";
+            this.nextMonthButton.Size = new System.Drawing.Size(23, 23);
+            this.nextMonthButton.TabIndex = 6;
+            this.nextMonthButton.Text = ">";
+            this.nextMonthButton.UseVisualStyleBackColor = true;
+            this.nextMonthButton.Visible = false;
+            // 
+            // prevMonthButton
+            // 
+            this.prevMonthButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.prevMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.prevMonthButton.Location = new System.Drawing.Point(467, 93);
+            this.prevMonthButton.Name = "prevMonthButton";
+            this.prevMonthButton.Size = new System.Drawing.Size(23, 23);
+            this.prevMonthButton.TabIndex = 7;
+            this.prevMonthButton.Text = "<";
+            this.prevMonthButton.UseVisualStyleBackColor = true;
+            this.prevMonthButton.Visible = false;
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.prevMonthButton);
+            this.Controls.Add(this.nextMonthButton);
+            this.Controls.Add(this.monthLabel);
             this.Controls.Add(this.weekAppointmentsRadioButton);
             this.Controls.Add(this.monthAppointmentsRadioButton);
             this.Controls.Add(this.allAppointmentsRadioButton);
@@ -254,5 +298,8 @@ namespace C969_Binkley
         private System.Windows.Forms.RadioButton allAppointmentsRadioButton;
         private System.Windows.Forms.RadioButton monthAppointmentsRadioButton;
         private System.Windows.Forms.RadioButton weekAppointmentsRadioButton;
+        private System.Windows.Forms.Label monthLabel;
+        private System.Windows.Forms.Button nextMonthButton;
+        private System.Windows.Forms.Button prevMonthButton;
     }
 }
