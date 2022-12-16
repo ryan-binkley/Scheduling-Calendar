@@ -74,9 +74,13 @@ namespace C969_Binkley
             get { return start.Date.ToString("d"); }
         }
 
-        public string AppointmentTime
+        public string AppointmentStartTime
         {
             get { return start.TimeOfDay.ToString(); }
+        }
+        public string AppointmentEndTime
+        {
+            get { return end.TimeOfDay.ToString(); }
         }
 
         public string CustomerName
