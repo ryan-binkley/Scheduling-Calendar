@@ -36,6 +36,12 @@ namespace C969_Binkley
             this.editCustomerDataGridView = new System.Windows.Forms.DataGridView();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cancelButtonECF = new System.Windows.Forms.Button();
+            this.saveButtonECF = new System.Windows.Forms.Button();
+            this.addButtonECF = new System.Windows.Forms.Button();
+            this.modifyButtonECF = new System.Windows.Forms.Button();
+            this.deleteButtonECF = new System.Windows.Forms.Button();
+            this.customerNameTextboxECF = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.editCustomerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,16 +99,87 @@ namespace C969_Binkley
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.ReadOnly = true;
             // 
+            // cancelButtonECF
+            // 
+            this.cancelButtonECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancelButtonECF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cancelButtonECF.Location = new System.Drawing.Point(652, 390);
+            this.cancelButtonECF.Name = "cancelButtonECF";
+            this.cancelButtonECF.Size = new System.Drawing.Size(90, 32);
+            this.cancelButtonECF.TabIndex = 9;
+            this.cancelButtonECF.Text = "Cancel";
+            this.cancelButtonECF.UseVisualStyleBackColor = true;
+            // 
+            // saveButtonECF
+            // 
+            this.saveButtonECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveButtonECF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.saveButtonECF.Location = new System.Drawing.Point(534, 390);
+            this.saveButtonECF.Name = "saveButtonECF";
+            this.saveButtonECF.Size = new System.Drawing.Size(90, 32);
+            this.saveButtonECF.TabIndex = 10;
+            this.saveButtonECF.Text = "Save";
+            this.saveButtonECF.UseVisualStyleBackColor = true;
+            // 
+            // addButtonECF
+            // 
+            this.addButtonECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addButtonECF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.addButtonECF.Location = new System.Drawing.Point(383, 318);
+            this.addButtonECF.Name = "addButtonECF";
+            this.addButtonECF.Size = new System.Drawing.Size(90, 32);
+            this.addButtonECF.TabIndex = 11;
+            this.addButtonECF.Text = "Add";
+            this.addButtonECF.UseVisualStyleBackColor = true;
+            // 
+            // modifyButtonECF
+            // 
+            this.modifyButtonECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.modifyButtonECF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.modifyButtonECF.Location = new System.Drawing.Point(502, 318);
+            this.modifyButtonECF.Name = "modifyButtonECF";
+            this.modifyButtonECF.Size = new System.Drawing.Size(90, 32);
+            this.modifyButtonECF.TabIndex = 12;
+            this.modifyButtonECF.Text = "Modify";
+            this.modifyButtonECF.UseVisualStyleBackColor = true;
+            // 
+            // deleteButtonECF
+            // 
+            this.deleteButtonECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteButtonECF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.deleteButtonECF.Location = new System.Drawing.Point(624, 318);
+            this.deleteButtonECF.Name = "deleteButtonECF";
+            this.deleteButtonECF.Size = new System.Drawing.Size(90, 32);
+            this.deleteButtonECF.TabIndex = 13;
+            this.deleteButtonECF.Text = "Delete";
+            this.deleteButtonECF.UseVisualStyleBackColor = true;
+            // 
+            // customerNameTextboxECF
+            // 
+            this.customerNameTextboxECF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerNameTextboxECF.Location = new System.Drawing.Point(129, 89);
+            this.customerNameTextboxECF.Name = "customerNameTextboxECF";
+            this.customerNameTextboxECF.Size = new System.Drawing.Size(136, 20);
+            this.customerNameTextboxECF.TabIndex = 14;
+            this.customerNameTextboxECF.WordWrap = false;
+            // 
             // EditCustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.customerNameTextboxECF);
+            this.Controls.Add(this.deleteButtonECF);
+            this.Controls.Add(this.modifyButtonECF);
+            this.Controls.Add(this.addButtonECF);
+            this.Controls.Add(this.saveButtonECF);
+            this.Controls.Add(this.cancelButtonECF);
             this.Controls.Add(this.editCustomerDataGridView);
             this.Name = "EditCustomersForm";
             this.Text = "EditCustomersForm";
             ((System.ComponentModel.ISupportInitialize)(this.editCustomerDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,5 +188,11 @@ namespace C969_Binkley
         private System.Windows.Forms.DataGridView editCustomerDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.Button cancelButtonECF;
+        private System.Windows.Forms.Button saveButtonECF;
+        private System.Windows.Forms.Button addButtonECF;
+        private System.Windows.Forms.Button modifyButtonECF;
+        private System.Windows.Forms.Button deleteButtonECF;
+        private System.Windows.Forms.TextBox customerNameTextboxECF;
     }
 }

@@ -15,3 +15,13 @@ I.   Provide the ability to generate each of the following reports:
 •   number of appointment types by month - Given a type and a month, how many appts match this? Not a list, a count.
 •   the schedule for each user 
 •   one additional report of your choice
+
+
+
+WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
+- 
+
+
+- What I intended to do next:
+    *  add functionality to change customer in database
+    * Add textboxes to the editCustomerForm for doing the changes
