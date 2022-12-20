@@ -47,6 +47,7 @@ namespace C969_Binkley
             this.dateLabel = new System.Windows.Forms.Label();
             this.nextDateButton = new System.Windows.Forms.Button();
             this.prevDateButton = new System.Windows.Forms.Button();
+            this.customerButton = new System.Windows.Forms.Button();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -261,11 +262,24 @@ namespace C969_Binkley
             this.prevDateButton.Visible = false;
             this.prevDateButton.Click += new System.EventHandler(this.prevDateButton_Click);
             // 
+            // customerButton
+            // 
+            this.customerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.customerButton.Location = new System.Drawing.Point(87, 655);
+            this.customerButton.Name = "customerButton";
+            this.customerButton.Size = new System.Drawing.Size(119, 56);
+            this.customerButton.TabIndex = 8;
+            this.customerButton.Text = "Customers";
+            this.customerButton.UseVisualStyleBackColor = true;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.customerButton);
             this.Controls.Add(this.prevDateButton);
             this.Controls.Add(this.nextDateButton);
             this.Controls.Add(this.dateLabel);
@@ -304,5 +318,6 @@ namespace C969_Binkley
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Button nextDateButton;
         private System.Windows.Forms.Button prevDateButton;
+        private System.Windows.Forms.Button customerButton;
     }
 }

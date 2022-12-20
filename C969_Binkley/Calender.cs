@@ -154,5 +154,13 @@ namespace C969_Binkley
 				ShowWeek();
 			}
 		}
+
+		// Event handler for the customer button click
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+			EditCustomersForm custForm = new EditCustomersForm();
+			custForm.Visible = true;
+			this.Visible = false;
+        }
     }
 }
