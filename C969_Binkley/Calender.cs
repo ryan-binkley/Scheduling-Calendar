@@ -16,6 +16,7 @@ namespace C969_Binkley
 			apptDGV.DataSource = AppointmentList.appointments;
 		}
 
+		// This is a simple accessor for the DataGridView
 		public DataGridView apptDGV
 		{
 			get { return this.appointmentCalendarDataGridView; }
@@ -111,6 +112,47 @@ namespace C969_Binkley
 			CurrentDate.SetAppointmentsByWeek(apptDGV);
 			DoNotShowMonth();
 			ShowWeek();
+		}
+
+		// Event handlers for prevDate and nextDate Buttons
+        private void prevDateButton_Click(object sender, EventArgs e)
+        {
+			if (monthAppointmentsRadioButton.Checked == true)
+            {
+				CurrentDate.AddToMonth(-1);
+				CurrentDate.GetAppointmentsByMonth();
+				CurrentDate.SetAppointmentsByMonth(apptDGV);
+				DoNotShowWeek();
+				ShowMonth();
+            }
+			
+			if (weekAppointmentsRadioButton.Checked == true)
+            {
+				CurrentDate.AddToWeek(-7);
+				CurrentDate.GetAppointmentsByWeek();
+				CurrentDate.SetAppointmentsByWeek(apptDGV);
+				DoNotShowMonth();
+				ShowWeek();
+            }
+        }
+
+        private void nextDateButton_Click(object sender, EventArgs e)
+        {
+			if (monthAppointmentsRadioButton.Checked == true)
+			{
+				CurrentDate.AddToMonth(1);
+				CurrentDate.GetAppointmentsByMonth();
+				CurrentDate.SetAppointmentsByMonth(apptDGV);
+				ShowMonth();
+			}
+
+			if (weekAppointmentsRadioButton.Checked == true)
+			{
+				CurrentDate.AddToWeek(7);
+				CurrentDate.GetAppointmentsByWeek();
+				CurrentDate.SetAppointmentsByWeek(apptDGV);
+				ShowWeek();
+			}
 		}
     }
 }

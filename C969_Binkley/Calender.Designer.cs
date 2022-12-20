@@ -246,6 +246,7 @@ namespace C969_Binkley
             this.nextDateButton.Text = ">";
             this.nextDateButton.UseVisualStyleBackColor = true;
             this.nextDateButton.Visible = false;
+            this.nextDateButton.Click += new System.EventHandler(this.nextDateButton_Click);
             // 
             // prevDateButton
             // 
@@ -258,6 +259,7 @@ namespace C969_Binkley
             this.prevDateButton.Text = "<";
             this.prevDateButton.UseVisualStyleBackColor = true;
             this.prevDateButton.Visible = false;
+            this.prevDateButton.Click += new System.EventHandler(this.prevDateButton_Click);
             // 
             // Calender
             // 

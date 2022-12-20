@@ -71,16 +71,16 @@ namespace C969_Binkley
 
         public string AppointmentDay
         {
-            get { return start.Date.ToString("d"); }
+            get { return start.ToLocalTime().Date.ToString("d"); }
         }
 
         public string AppointmentStartTime
         {
-            get { return start.TimeOfDay.ToString(); }
+            get { return start.ToLocalTime().TimeOfDay.ToString(); }
         }
         public string AppointmentEndTime
         {
-            get { return end.TimeOfDay.ToString(); }
+            get { return end.ToLocalTime().TimeOfDay.ToString(); }
         }
 
         public string CustomerName
@@ -95,7 +95,12 @@ namespace C969_Binkley
 
         public int AppointmentMonth
         {
-            get { return start.Month; }
+            get { return start.ToLocalTime().Month; }
+        }
+
+        public int AppointmentYear
+        {
+            get { return start.ToLocalTime().Year; }
         }
     }
 }
