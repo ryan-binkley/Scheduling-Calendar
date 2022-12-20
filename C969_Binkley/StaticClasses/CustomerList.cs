@@ -54,7 +54,7 @@ namespace C969_Binkley.StaticClasses
 				}
 
 				// Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
-				MySqlCommand mySqlCmd = new MySqlCommand(DBConnection.getAllRelevantInformation, sqlConnection);
+				MySqlCommand mySqlCmd = new MySqlCommand("SELECT * FROM customer JOIN address ON customer.addressId = address.addressId JOIN city ON address.cityId = city.cityId JOIN country ON city.countryId = country.countryId", sqlConnection);
 
 				// Create a SqlDataReader to execute and read the output of the SqlCommand
 				MySqlDataReader sqlReader = mySqlCmd.ExecuteReader();
@@ -67,19 +67,18 @@ namespace C969_Binkley.StaticClasses
 				{
 					Customer customerToBeAddedToList = new Customer();
 
-					customerToBeAddedToList.Address.City.Country = new Country();
-					customerToBeAddedToList.CountryName = sqlReader.GetString("country");
-
-					customerToBeAddedToList.Address.City = new City();
-					customerToBeAddedToList.CityName = sqlReader.GetString("city");
+					customerToBeAddedToList.CustomerId = sqlReader.GetInt32("customerId");
+					customerToBeAddedToList.CustomerName = sqlReader.GetString("customerName");
 
 					customerToBeAddedToList.Address = new Address();
 					customerToBeAddedToList.AddressString = sqlReader.GetString("address");
 					customerToBeAddedToList.Phone = sqlReader.GetString("phone");
 
-					customerToBeAddedToList.CustomerId = sqlReader.GetInt32("customerId");
-					customerToBeAddedToList.CustomerName = sqlReader.GetString("customerName");
-					
+					customerToBeAddedToList.Address.City = new City();
+					customerToBeAddedToList.CityName = sqlReader.GetString("city");
+
+					customerToBeAddedToList.Address.City.Country = new Country();
+					customerToBeAddedToList.CountryName = sqlReader.GetString("country");
 
 					listToReturn.Add(customerToBeAddedToList);
 				}

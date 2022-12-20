@@ -29,6 +29,9 @@ namespace C969_Binkley
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timePanelCurrentTimeLabel = new System.Windows.Forms.Label();
             this.timePanel = new System.Windows.Forms.Panel();
             this.UTCTimeTimer = new System.Windows.Forms.Label();
@@ -116,6 +119,14 @@ namespace C969_Binkley
             // 
             this.appointmentCalendarDataGridView.AllowUserToAddRows = false;
             this.appointmentCalendarDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appointmentCalendarDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.appointmentCalendarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appointmentCalendarDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AppointmentDay,
@@ -128,8 +139,18 @@ namespace C969_Binkley
             this.appointmentCalendarDataGridView.MultiSelect = false;
             this.appointmentCalendarDataGridView.Name = "appointmentCalendarDataGridView";
             this.appointmentCalendarDataGridView.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appointmentCalendarDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.appointmentCalendarDataGridView.RowHeadersVisible = false;
             this.appointmentCalendarDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.appointmentCalendarDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.appointmentCalendarDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentCalendarDataGridView.Size = new System.Drawing.Size(769, 381);
             this.appointmentCalendarDataGridView.TabIndex = 0;
