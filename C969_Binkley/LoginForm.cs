@@ -14,7 +14,7 @@ namespace C969_Binkley
 {
 	public partial class LoginForm : Form
 	{
-		Calender calendar_month = new Calender();
+		public static Calender calendar_month = new Calender();
 		static string user;
 		static User currentUser;
 		

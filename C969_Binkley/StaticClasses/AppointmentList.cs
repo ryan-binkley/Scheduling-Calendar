@@ -17,11 +17,14 @@ namespace C969_Binkley
         // Make a global 'static' List to be modified by the rest of the program.
         public static BindingList<Appointment> appointments = new BindingList<Appointment>();
 
-        // Methods to modify the list should be put under here.
-        
-        // Appointment -> Void
-        // This function adds the input appointment to the appointments bindinglist
-        public static void AddAppointment(Appointment inpAppt)
+		// Declare a temp variable to temporarily hold the object that the user selects
+		public static Appointment appointmentSelected;
+
+		// Methods to modify the list should be put under here.
+
+		// Appointment -> Void
+		// This function adds the input appointment to the appointments bindinglist
+		public static void AddAppointment(Appointment inpAppt)
         {
             appointments.Add(inpAppt);
         }
@@ -91,7 +94,7 @@ namespace C969_Binkley
 			// If an error occurs, show a messagebox informing the user of the error and return null
 			catch (MySqlException exception)
 			{
-				MessageBox.Show(exception.Message, "User Exists Error");
+				MessageBox.Show(exception.Message, "AppointmentList Error");
 				
 				return null;
 			}
