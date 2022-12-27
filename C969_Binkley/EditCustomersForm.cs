@@ -14,6 +14,7 @@ namespace C969_Binkley
 {
     public partial class EditCustomersForm : Form
     {
+        public static ECFAddModify ecfForm = new ECFAddModify();
         public EditCustomersForm()
         {
             InitializeComponent();
@@ -32,63 +33,37 @@ namespace C969_Binkley
         // Eventhandlers for all the buttons on the EditCustomersForm
         private void addButtonECF_Click(object sender, EventArgs e)
         {
-            if (!ValidateInput())
-            {
-                return;
-            }
-
-
+            ECFAddModify.addOrMod = "add";
+            this.Visible = false;
+            ecfForm.Visible = true;
         }
 
         private void modifyButtonECF_Click(object sender, EventArgs e)
         {
+            ECFAddModify.addOrMod = "mod";
+            this.Visible = false;
+            ecfForm.Visible = true;
 
+            int indexOfCustToBeChanged = CustomerList.listOfCustomers.IndexOf((Customer)Calender.custForm.custDGV.CurrentRow.DataBoundItem);
+
+            ecfForm.customerNameTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].CustomerName;
+            ecfForm.addressTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].AddressString;
+            ecfForm.phoneTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].Phone;
+            ecfForm.cityTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].CityName;
+            ecfForm.countryTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].CountryName;
         }
 
         private void deleteButtonECF_Click(object sender, EventArgs e)
         {
-
+            Customer custSelected = (Customer)custDGV.CurrentRow.DataBoundItem;
+            CustomerList.DeleteCustomer(custSelected);
         }
 
-        private void saveButtonECF_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void cancelButtonECF_Click(object sender, EventArgs e)
+        private void backButtonECF_Click(object sender, EventArgs e)
         {
-            ClearTextboxes();
             this.Visible = false;
             LoginForm.calendar_month.Visible = true;
-        }
-
-        // Void -> Void
-        // This method clears the forms textboxes
-        public void ClearTextboxes()
-        {
-            foreach (Control txtBox in this.Controls)
-            {
-                if (txtBox is TextBox)
-                {
-                    txtBox.Text = "";
-                }
-            }
-        }
-
-        // void -> Boolean
-        // This function ensures that no textboxes are left empty
-        public bool ValidateInput()
-        {
-            foreach (Control txtBox in this.Controls)
-            {
-                if ((txtBox is TextBox) && (txtBox.Text == ""))
-                {
-                    MessageBox.Show("There cannot be any empt inputs!", "Customer Edit Error", MessageBoxButtons.OK);
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }

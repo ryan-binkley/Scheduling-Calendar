@@ -7,7 +7,8 @@ namespace C969_Binkley
 {
     public partial class Calender : Form
     {
-        public Calender()
+		public static EditCustomersForm custForm = new EditCustomersForm();
+		public Calender()
         {
             InitializeComponent();
 			StartTimer();
@@ -158,7 +159,6 @@ namespace C969_Binkley
 		// Event handler for the customer button click
         private void customerButton_Click(object sender, EventArgs e)
         {
-			EditCustomersForm custForm = new EditCustomersForm();
 			custForm.Visible = true;
 			this.Visible = false;
         }

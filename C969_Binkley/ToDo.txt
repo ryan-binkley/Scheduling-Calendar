@@ -24,4 +24,3 @@ WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
 
 - What I intended to do next:
     *  add functionality to change customer in database
-    * Add textboxes to the editCustomerForm for doing the changes
