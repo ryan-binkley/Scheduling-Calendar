@@ -5,7 +5,6 @@ E.   Provide the ability to automatically adjust appointment times based on user
 F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
     •   scheduling an appointment outside business hours (Set reasonable business hours 9-5 7 days a week)
     •   scheduling overlapping appointments (ONLY user cannot be in two appts at one time)
-    •   entering nonexistent or invalid customer data(blank text)
 
 H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
 
