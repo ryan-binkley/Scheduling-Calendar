@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Binkley.Database;
 using C969_Binkley.DatabaseObjects;
 using C969_Binkley.StaticClasses;
+using MySql.Data.MySqlClient;
 
 namespace C969_Binkley
 {
@@ -56,6 +58,41 @@ namespace C969_Binkley
         private void deleteButtonECF_Click(object sender, EventArgs e)
         {
             Customer custSelected = (Customer)custDGV.CurrentRow.DataBoundItem;
+
+            // Create a local reference to the Sql Connection in the DBConnection class
+            MySqlConnection sqlConnection = DBConnection.sqlConnection;
+
+            try
+            {
+                // If the connection is not open, inform user and return null to get out of the function call
+                if (!(sqlConnection.State == ConnectionState.Open))
+                {
+                    MessageBox.Show("Connection to Database is closed.", "Connection Error");
+
+                    return;
+                }
+
+                // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+                string cmd = String.Format("BEGIN; " +
+                    "DELETE FROM customer WHERE customerId={0}; " +
+                    "DELETE FROM address WHERE addressId={1};" +
+                    "DELETE FROM city WHERE cityId={2};" +
+                    "DELETE FROM country WHERE countryId={3};" +
+                    "COMMIT;", custSelected.CustomerId.ToString(), custSelected.Address.AddressId.ToString(), custSelected.Address.City.CityId.ToString(), custSelected.Address.City.Country.CountryId.ToString());
+
+                MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                mySqlCmd.ExecuteNonQuery();
+            }
+
+            // If an error occurs, show a messagebox informing the user of the error and return null
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.Message, "ECFDelete Error");
+
+                return;
+            }
+
             CustomerList.DeleteCustomer(custSelected);
         }
 

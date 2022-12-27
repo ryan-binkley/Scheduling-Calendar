@@ -8,9 +8,11 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class City
     {
+        public int uniqueID = 1000;
         public City()
         {
-
+            uniqueID++;
+            cityId = uniqueID;
         }
         public City(int cityID, string cityName, Country country)
         {

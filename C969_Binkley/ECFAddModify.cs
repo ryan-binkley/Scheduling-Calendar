@@ -42,11 +42,14 @@ namespace C969_Binkley
                 saveCust.Address.City = new City();
                 saveCust.Address.City.Country = new Country();
 
-                saveCust.CustomerId = Customer.uniqueID;
+                saveCust.CustomerId = saveCust.uniqueID;
                 saveCust.CustomerName = this.customerNameTextboxECF.Text;
+                saveCust.Address.AddressId = saveCust.Address.uniqueID;
                 saveCust.AddressString = this.addressTextboxECF.Text;
                 saveCust.Phone = this.phoneTextboxECF.Text;
+                saveCust.Address.City.CityId = saveCust.Address.City.uniqueID;
                 saveCust.CityName = this.cityTextboxECF.Text;
+                saveCust.Address.City.Country.CountryId = saveCust.Address.City.Country.uniqueID;
                 saveCust.CountryName = this.countryTextboxECF.Text;
 
                 CustomerList.AddCustomer(saveCust);
@@ -62,11 +65,33 @@ namespace C969_Binkley
                     }
 
                     // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
-                    string cmd = String.Format("BEGIN; INSERT INTO customer (customerId, customerName, addressId, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (\"{0}\", \"{1}\", 1, 1, NOW(), \"test\", NOW(), \"test\"); COMMIT;", saveCust.CustomerId.ToString(), saveCust.CustomerName);
-                    
+                    string cmd = "";
+
                     MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
 
+                    cmd = String.Format("INSERT INTO country(countryId, country, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES({0}, \"{1}\", NOW(), \"test\", NOW(), \"test\");", saveCust.Address.City.Country.CountryId.ToString(), saveCust.CountryName);
+
+                    mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
                     mySqlCmd.ExecuteNonQuery();
+
+                    cmd = String.Format("INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ({0}, \"{1}\", {2}, NOW(), \"test\", NOW(), \"test\");", saveCust.Address.City.CityId.ToString(), saveCust.CityName, saveCust.Address.City.Country.CountryId.ToString());
+
+                    mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();
+
+                    cmd = String.Format("INSERT INTO address (addressId, address, address2, cityId, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ({0}, \"{1}\", \"\", {2}, \"\", \"{3}\",  NOW(), \"test\", NOW(), \"test\");", saveCust.Address.AddressId.ToString(), saveCust.AddressString, saveCust.Address.City.CityId.ToString(), saveCust.Address.Phone);
+
+                    mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();
+
+                    cmd = String.Format("INSERT INTO customer (customerId, customerName, addressId, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (\"{0}\", \"{1}\", {2}, 1, NOW(), \"test\", NOW(), \"test\");", saveCust.CustomerId.ToString(), saveCust.CustomerName, saveCust.Address.AddressId.ToString());
+
+                    mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();  
                 }
 
                 // If an error occurs, show a messagebox informing the user of the error and return null
@@ -87,6 +112,38 @@ namespace C969_Binkley
                 CustomerList.listOfCustomers[indexOfCustToBeChanged].Phone = this.phoneTextboxECF.Text;
                 CustomerList.listOfCustomers[indexOfCustToBeChanged].CityName = this.cityTextboxECF.Text;
                 CustomerList.listOfCustomers[indexOfCustToBeChanged].CountryName = this.countryTextboxECF.Text;
+
+                try
+                {
+                    // If the connection is not open, inform user and return null to get out of the function call
+                    if (!(sqlConnection.State == ConnectionState.Open))
+                    {
+                        MessageBox.Show("Connection to Database is closed.", "Connection Error");
+
+                        return;
+                    }
+
+                    // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+                    string cmd = String.Format("BEGIN; " +
+                        "UPDATE customer SET  customerName = \'{0}\' WHERE customerId={1}; " +
+                        "UPDATE address SET address = \'{2}\' WHERE addressId={3};" +
+                        "UPDATE address SET phone = \'{4}\' WHERE addressId={3};" +
+                        "UPDATE city SET city = \'{5}\' WHERE cityId={6};" +
+                        "UPDATE country SET country = \'{7}\' WHERE countryId={8};" +
+                        "COMMIT;", this.customerNameTextboxECF.Text, CustomerList.listOfCustomers[indexOfCustToBeChanged].CustomerId.ToString(), this.addressTextboxECF.Text, CustomerList.listOfCustomers[indexOfCustToBeChanged].Address.AddressId.ToString(), this.phoneTextboxECF.Text, this.cityTextboxECF.Text, CustomerList.listOfCustomers[indexOfCustToBeChanged].Address.City.CityId.ToString(), this.countryTextboxECF.Text, CustomerList.listOfCustomers[indexOfCustToBeChanged].Address.City.Country.CountryId.ToString());
+
+                    MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();
+                }
+
+                // If an error occurs, show a messagebox informing the user of the error and return null
+                catch (MySqlException exception)
+                {
+                    MessageBox.Show(exception.Message, "ECFAddModify Error");
+
+                    return;
+                }
             }
 
             ClearTextboxes();

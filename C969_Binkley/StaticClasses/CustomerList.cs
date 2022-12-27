@@ -67,17 +67,20 @@ namespace C969_Binkley.StaticClasses
 				{
 					Customer customerToBeAddedToList = new Customer();
 
-					customerToBeAddedToList.CustomerId = sqlReader.GetInt32("customerId");
+					customerToBeAddedToList.CustomerId = sqlReader.GetInt16("customerId");
 					customerToBeAddedToList.CustomerName = sqlReader.GetString("customerName");
 
 					customerToBeAddedToList.Address = new Address();
+					customerToBeAddedToList.Address.AddressId = sqlReader.GetInt16("addressId");
 					customerToBeAddedToList.AddressString = sqlReader.GetString("address");
 					customerToBeAddedToList.Phone = sqlReader.GetString("phone");
 
 					customerToBeAddedToList.Address.City = new City();
+					customerToBeAddedToList.Address.City.CityId = sqlReader.GetInt16("cityId");
 					customerToBeAddedToList.CityName = sqlReader.GetString("city");
 
 					customerToBeAddedToList.Address.City.Country = new Country();
+					customerToBeAddedToList.Address.City.Country.CountryId = sqlReader.GetInt16("countryId");
 					customerToBeAddedToList.CountryName = sqlReader.GetString("country");
 
 					listToReturn.Add(customerToBeAddedToList);

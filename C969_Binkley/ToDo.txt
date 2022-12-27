@@ -1,6 +1,4 @@
-﻿B.  Provide the ability to add, update, and delete customer records in the database, including name, address, phone number, city name, and country.
-
-C.   Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database. 'a link to the specific customer record in the database' is a fancy way of saying customer id. Minimum data for user input should be type, customer, & schedule time.
+﻿C.   Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database. 'a link to the specific customer record in the database' is a fancy way of saying customer id. Minimum data for user input should be type, customer, & schedule time.
 
 E.   Provide the ability to automatically adjust appointment times based on user time zones and daylight-saving time. Convert times when inserting into/extracting from the database.
 
@@ -19,8 +17,9 @@ I.   Provide the ability to generate each of the following reports:
 
 
 WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
-- 
+- Added functionality to save button - to database
+- Added functionality to delete button - to database
 
 
 - What I intended to do next:
-    *  add functionality to change customer in database
+    Do the same thing I did with the customers, with the appointments, maybe smooth it out a bit.

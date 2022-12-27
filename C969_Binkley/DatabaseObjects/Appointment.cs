@@ -14,6 +14,7 @@ namespace C969_Binkley
         public Appointment()
         {
             uniqueID++;
+            appointmentId = uniqueID;
         }
         public Appointment(Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
         {
