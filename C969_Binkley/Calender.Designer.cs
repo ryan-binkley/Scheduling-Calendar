@@ -51,6 +51,9 @@ namespace C969_Binkley
             this.nextDateButton = new System.Windows.Forms.Button();
             this.prevDateButton = new System.Windows.Forms.Button();
             this.customerButton = new System.Windows.Forms.Button();
+            this.calAddButton = new System.Windows.Forms.Button();
+            this.calUpdateButton = new System.Windows.Forms.Button();
+            this.calDeleteButton = new System.Windows.Forms.Button();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -295,11 +298,47 @@ namespace C969_Binkley
             this.customerButton.UseVisualStyleBackColor = true;
             this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
+            // calAddButton
+            // 
+            this.calAddButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.calAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.calAddButton.Location = new System.Drawing.Point(595, 584);
+            this.calAddButton.Name = "calAddButton";
+            this.calAddButton.Size = new System.Drawing.Size(106, 45);
+            this.calAddButton.TabIndex = 9;
+            this.calAddButton.Text = "Add";
+            this.calAddButton.UseVisualStyleBackColor = true;
+            // 
+            // calUpdateButton
+            // 
+            this.calUpdateButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.calUpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.calUpdateButton.Location = new System.Drawing.Point(729, 584);
+            this.calUpdateButton.Name = "calUpdateButton";
+            this.calUpdateButton.Size = new System.Drawing.Size(106, 45);
+            this.calUpdateButton.TabIndex = 10;
+            this.calUpdateButton.Text = "Update";
+            this.calUpdateButton.UseVisualStyleBackColor = true;
+            // 
+            // calDeleteButton
+            // 
+            this.calDeleteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.calDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.calDeleteButton.Location = new System.Drawing.Point(859, 584);
+            this.calDeleteButton.Name = "calDeleteButton";
+            this.calDeleteButton.Size = new System.Drawing.Size(106, 45);
+            this.calDeleteButton.TabIndex = 11;
+            this.calDeleteButton.Text = "Delete";
+            this.calDeleteButton.UseVisualStyleBackColor = true;
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.calDeleteButton);
+            this.Controls.Add(this.calUpdateButton);
+            this.Controls.Add(this.calAddButton);
             this.Controls.Add(this.customerButton);
             this.Controls.Add(this.prevDateButton);
             this.Controls.Add(this.nextDateButton);
@@ -340,5 +379,8 @@ namespace C969_Binkley
         private System.Windows.Forms.Button nextDateButton;
         private System.Windows.Forms.Button prevDateButton;
         private System.Windows.Forms.Button customerButton;
+        private System.Windows.Forms.Button calAddButton;
+        private System.Windows.Forms.Button calUpdateButton;
+        private System.Windows.Forms.Button calDeleteButton;
     }
 }
