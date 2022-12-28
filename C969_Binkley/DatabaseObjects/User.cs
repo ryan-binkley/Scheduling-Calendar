@@ -8,15 +8,11 @@ namespace C969_Binkley
 {
     public class User
     {
-        public int uniqueID = 0;
+        public int uniqueID = 100;
         public User()
         {
             uniqueID++;
-        }
-        public User(int Id)
-        {
-            UserId = Id;
-            uniqueID++;
+            userId = uniqueID;
         }
 
         private int userId;
