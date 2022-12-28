@@ -305,9 +305,9 @@ namespace C969_Binkley
 					// Close sqlReader so repeated attempts do not cause an exception
 					sqlReader.Close();
 
-					User userToReturn = new User(userId);
+					currentUser = new User(userId);
 
-					return userToReturn;
+					return currentUser;
 				}
 				sqlReader.Close();
 

@@ -15,6 +15,11 @@ namespace C969_Binkley
             userId = uniqueID;
         }
 
+        public User(int Id)
+        {
+            userId = Id;
+        }
+
         private int userId;
         public int UserId
         {
