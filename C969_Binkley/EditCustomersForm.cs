@@ -74,9 +74,10 @@ namespace C969_Binkley
 
                 // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
                 string cmd = String.Format("BEGIN; " +
-                    "DELETE FROM customer WHERE customerId={0}; " +
-                    "DELETE FROM address WHERE addressId={1};" +
-                    "DELETE FROM city WHERE cityId={2};" +
+                    "DELETE FROM appointment WHERE customerId={0};" +
+                    "DELETE FROM customer WHERE addressId={1}; " +
+                    "DELETE FROM address WHERE cityId={2};" +
+                    "DELETE FROM city WHERE countryId={3};" +
                     "DELETE FROM country WHERE countryId={3};" +
                     "COMMIT;", custSelected.CustomerId.ToString(), custSelected.Address.AddressId.ToString(), custSelected.Address.City.CityId.ToString(), custSelected.Address.City.Country.CountryId.ToString());
 
