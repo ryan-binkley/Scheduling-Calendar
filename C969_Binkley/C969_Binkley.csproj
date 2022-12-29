@@ -84,6 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EAAddUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EAAddUpdate.Designer.cs">
+      <DependentUpon>EAAddUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="ECFAddModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="StaticClasses\CustomerList.cs" />
     <EmbeddedResource Include="Calender.resx">
       <DependentUpon>Calender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EAAddUpdate.resx">
+      <DependentUpon>EAAddUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ECFAddModify.resx">
       <DependentUpon>ECFAddModify.cs</DependentUpon>

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Windows.Forms;
+using C969_Binkley.Database;
+using C969_Binkley.StaticClasses;
+using MySql.Data.MySqlClient;
 
 namespace C969_Binkley
 {
@@ -162,5 +166,52 @@ namespace C969_Binkley
 			custForm.Visible = true;
 			this.Visible = false;
         }
+
+		// Event handlers for the modification buttons to appointments
+        private void calAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calUpdateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calDeleteButton_Click(object sender, EventArgs e)
+        {
+			Appointment apptSelected = (Appointment)apptDGV.CurrentRow.DataBoundItem;
+
+			// Create a local reference to the Sql Connection in the DBConnection class
+			MySqlConnection sqlConnection = DBConnection.sqlConnection;
+
+			try
+			{
+				// If the connection is not open, inform user and return null to get out of the function call
+				if (!(sqlConnection.State == ConnectionState.Open))
+				{
+					MessageBox.Show("Connection to Database is closed.", "Connection Error");
+
+					return;
+				}
+
+				// Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+				string cmd = String.Format("DELETE FROM appointment WHERE appointmentId={0};", apptSelected.AppointmentId.ToString());
+
+				MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+				mySqlCmd.ExecuteNonQuery();
+			}
+
+			// If an error occurs, show a messagebox informing the user of the error and return null
+			catch (MySqlException exception)
+			{
+				MessageBox.Show(exception.Message, "Appointment Delete Error");
+
+				return;
+			}
+
+			AppointmentList.DeleteAppointment(apptSelected);
+		}
     }
 }

@@ -38,6 +38,9 @@ namespace C969_Binkley
             ECFAddModify.addOrMod = "add";
             this.Visible = false;
             ecfForm.Visible = true;
+
+            AppointmentList.appointments = AppointmentList.GetAllAppointments();
+            LoginForm.calendar_month.apptDGV.DataSource = AppointmentList.appointments;
         }
 
         private void modifyButtonECF_Click(object sender, EventArgs e)
@@ -53,6 +56,9 @@ namespace C969_Binkley
             ecfForm.phoneTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].Phone;
             ecfForm.cityTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].CityName;
             ecfForm.countryTextboxECF.Text = CustomerList.listOfCustomers[indexOfCustToBeChanged].CountryName;
+
+            AppointmentList.appointments = AppointmentList.GetAllAppointments();
+            LoginForm.calendar_month.apptDGV.DataSource = AppointmentList.appointments;
         }
 
         private void deleteButtonECF_Click(object sender, EventArgs e)
@@ -95,6 +101,9 @@ namespace C969_Binkley
             }
 
             CustomerList.DeleteCustomer(custSelected);
+
+            AppointmentList.appointments = AppointmentList.GetAllAppointments();
+            LoginForm.calendar_month.apptDGV.DataSource = AppointmentList.appointments;
         }
 
 
