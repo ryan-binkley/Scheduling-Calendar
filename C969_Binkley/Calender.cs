@@ -62,7 +62,9 @@ namespace C969_Binkley
 		public void ShowMonth()
         {
 			this.dateLabel.Text = CurrentDate.currentMonthDateTime.ToString("MMMM");
+			this.yearLabel.Text = CurrentDate.currentMonthDateTime.ToString("yyyy");
 			this.dateLabel.Visible = true;
+			this.yearLabel.Visible = true;
 			this.prevDateButton.Visible = true;
 			this.nextDateButton.Visible = true;
         }
@@ -72,6 +74,7 @@ namespace C969_Binkley
 		public void DoNotShowMonth()
 		{
 			this.dateLabel.Visible = false;
+			this.yearLabel.Visible = false;
 			this.prevDateButton.Visible = false;
 			this.nextDateButton.Visible = false;
 		}
@@ -81,6 +84,8 @@ namespace C969_Binkley
 		public void ShowWeek()
 		{
 			this.dateLabel.Text = CurrentDate.currentWeekStartDateTime.ToString("M") + " - " + CurrentDate.currentWeekEndDateTime.ToString("M");
+			this.yearLabel.Text = CurrentDate.currentWeekStartDateTime.ToString("yyyy");
+			this.yearLabel.Visible = true;
 			this.dateLabel.Visible = true;
 			this.prevDateButton.Visible = true;
 			this.nextDateButton.Visible = true;
@@ -91,6 +96,7 @@ namespace C969_Binkley
 		public void DoNotShowWeek()
 		{
 			this.dateLabel.Visible = false;
+			this.yearLabel.Visible = false;
 			this.prevDateButton.Visible = false;
 			this.nextDateButton.Visible = false;
 		}
