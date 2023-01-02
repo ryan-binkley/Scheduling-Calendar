@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using C969_Binkley.DatabaseObjects;
+using C969_Binkley.StaticClasses;
 
 namespace C969_Binkley
 {
@@ -17,6 +18,9 @@ namespace C969_Binkley
         public EAAddUpdate()
         {
             InitializeComponent();
+            this.customerDopdown.DataSource = CustomerList.listOfCustomers;
+            UserList.listOfUsers = UserList.GetAllUsers();
+            this.userDropdown.DataSource = UserList.listOfUsers;
         }
 
         private void saveButtonEAF_Click(object sender, EventArgs e)
@@ -27,19 +31,16 @@ namespace C969_Binkley
             }
 
             DateTime newDate = datetimepickerDay.Value.Date + datetimepickerTime.Value.TimeOfDay;
+            
 
 
             if (addOrMod == "add")
             {
-                EAFLabel.Text = "Add";
-
 
             }
 
             if (addOrMod == "mod")
             {
-                EAFLabel.Text = "Update";
-
                 int indexOfApptToBeChanged = AppointmentList.appointments.IndexOf((Appointment)Calender.custForm.custDGV.CurrentRow.DataBoundItem);
 
                 AppointmentList.appointments[indexOfApptToBeChanged].Type = typeTextbox.Text;
@@ -50,6 +51,10 @@ namespace C969_Binkley
             }
 
             ClearTextboxes();
+            this.CustomerDropdown.ResetText();
+            this.CustomerDropdown.SelectedIndex = -1;
+            this.UserDropdown.ResetText();
+            this.UserDropdown.SelectedIndex = -1;
             this.Visible = false;
             Calender.custForm.Visible = true;
         }
@@ -57,6 +62,11 @@ namespace C969_Binkley
         private void cancelButtonEAF_Click(object sender, EventArgs e)
         {
             ClearTextboxes();
+            this.CustomerDropdown.ResetText();
+            this.CustomerDropdown.SelectedIndex = -1;
+            this.UserDropdown.ResetText();
+            this.UserDropdown.SelectedIndex = -1;
+
             this.Visible = false;
             LoginForm.calendar_month.Visible = true;
         }
@@ -132,19 +142,38 @@ namespace C969_Binkley
         }
 
         // void -> Boolean
-        // This function ensures that no textboxes are left empty
+        // This function ensures that no textboxes are left empty and/or combobox options unselected
         public bool ValidateInput()
         {
             foreach (Control txtBox in this.Controls)
             {
                 if ((txtBox is TextBox) && (txtBox.Text == ""))
                 {
-                    MessageBox.Show("There cannot be any empt inputs!", "Customer Edit Error", MessageBoxButtons.OK);
+                    MessageBox.Show("There cannot be any empty inputs!", "Customer Edit Error", MessageBoxButtons.OK);
                     return false;
                 }
             }
 
+            if (this.CustomerDropdown.SelectedIndex == -1 || this.UserDropdown.SelectedIndex == -1)
+            {
+                MessageBox.Show("There cannot be any empty inputs!", "Customer Edit Error", MessageBoxButtons.OK);
+                return false;
+            }
+
             return true;
+        }
+
+        private void EAAddUpdate_VisibleChanged(object sender, EventArgs e)
+        {
+            if (addOrMod == "add")
+            {
+                EAFLabel.Text = "Add";
+            }
+
+            if (addOrMod == "mod")
+            {
+                EAFLabel.Text = "Update";
+            }
         }
     }
 }

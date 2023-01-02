@@ -34,8 +34,8 @@ namespace C969_Binkley
             this.EAFLabel = new System.Windows.Forms.Label();
             this.typeLabel = new System.Windows.Forms.Label();
             this.customerLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.cunsolutantLabel = new System.Windows.Forms.Label();
             this.customerDopdown = new System.Windows.Forms.ComboBox();
             this.userDropdown = new System.Windows.Forms.ComboBox();
             this.typeTextbox = new System.Windows.Forms.TextBox();
@@ -96,29 +96,30 @@ namespace C969_Binkley
             this.customerLabel.TabIndex = 39;
             this.customerLabel.Text = "Customer";
             // 
-            // label1
+            // dateLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(46, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Date";
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateLabel.Location = new System.Drawing.Point(46, 145);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(44, 20);
+            this.dateLabel.TabIndex = 40;
+            this.dateLabel.Text = "Date";
             // 
-            // label2
+            // cunsolutantLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(4, 190);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 20);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Consultant";
+            this.cunsolutantLabel.AutoSize = true;
+            this.cunsolutantLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cunsolutantLabel.Location = new System.Drawing.Point(4, 190);
+            this.cunsolutantLabel.Name = "cunsolutantLabel";
+            this.cunsolutantLabel.Size = new System.Drawing.Size(86, 20);
+            this.cunsolutantLabel.TabIndex = 41;
+            this.cunsolutantLabel.Text = "Consultant";
             // 
             // customerDopdown
             // 
             this.customerDopdown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerDopdown.DisplayMember = "CustomerName";
             this.customerDopdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerDopdown.FormattingEnabled = true;
             this.customerDopdown.Location = new System.Drawing.Point(109, 99);
@@ -129,6 +130,7 @@ namespace C969_Binkley
             // userDropdown
             // 
             this.userDropdown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userDropdown.DisplayMember = "UserName";
             this.userDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userDropdown.FormattingEnabled = true;
             this.userDropdown.Location = new System.Drawing.Point(109, 189);
@@ -172,8 +174,8 @@ namespace C969_Binkley
             this.Controls.Add(this.typeTextbox);
             this.Controls.Add(this.userDropdown);
             this.Controls.Add(this.customerDopdown);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cunsolutantLabel);
+            this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.customerLabel);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.EAFLabel);
@@ -181,6 +183,7 @@ namespace C969_Binkley
             this.Controls.Add(this.saveButtonEAF);
             this.Name = "EAAddUpdate";
             this.Text = "EAAddUpdate";
+            this.VisibleChanged += new System.EventHandler(this.EAAddUpdate_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,8 +196,8 @@ namespace C969_Binkley
         private System.Windows.Forms.Label EAFLabel;
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label cunsolutantLabel;
         private System.Windows.Forms.ComboBox customerDopdown;
         private System.Windows.Forms.ComboBox userDropdown;
         private System.Windows.Forms.TextBox typeTextbox;

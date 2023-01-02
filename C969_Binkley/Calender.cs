@@ -173,6 +173,7 @@ namespace C969_Binkley
         {
 			EAAddUpdate.addOrMod = "add";
 
+
 			editApptsForm.Visible = true;
 			this.Visible = false;
         }
@@ -182,6 +183,13 @@ namespace C969_Binkley
 			EAAddUpdate.addOrMod = "mod";
 
 			Appointment apptSelected = (Appointment)apptDGV.CurrentRow.DataBoundItem;
+
+			editApptsForm.TypeTextbox.Text = apptSelected.Type;
+			editApptsForm.CustomerDropdown.SelectedIndex = editApptsForm.CustomerDropdown.FindStringExact(apptSelected.Customer.CustomerName);
+			editApptsForm.DateTimePickerDay.Value = apptSelected.Start.ToLocalTime();
+			editApptsForm.DateTimePickerTime.Value = apptSelected.Start.ToLocalTime();
+			UserList.listOfUsers = UserList.GetAllUsers();
+			editApptsForm.UserDropdown.SelectedIndex = editApptsForm.UserDropdown.FindStringExact(apptSelected.User.UserName);
 
 
 			editApptsForm.Visible = true;
