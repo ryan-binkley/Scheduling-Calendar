@@ -125,7 +125,7 @@ namespace C969_Binkley
 
                     // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
                     string cmd = String.Format("BEGIN; " +
-                        "UPDATE customer SET  customerName = \'{0}\' WHERE customerId={1}; " +
+                        "UPDATE customer SET customerName = \'{0}\' WHERE customerId={1}; " +
                         "UPDATE address SET address = \'{2}\' WHERE addressId={3};" +
                         "UPDATE address SET phone = \'{4}\' WHERE addressId={3};" +
                         "UPDATE city SET city = \'{5}\' WHERE cityId={6};" +

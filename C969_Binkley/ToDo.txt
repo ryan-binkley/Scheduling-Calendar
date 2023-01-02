@@ -1,9 +1,5 @@
-﻿C.   Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database. 'a link to the specific customer record in the database' is a fancy way of saying customer id. Minimum data for user input should be type, customer, & schedule time.
-
-E.   Provide the ability to automatically adjust appointment times based on user time zones and daylight-saving time. Convert times when inserting into/extracting from the database.
-
-F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
-    •   scheduling an appointment outside business hours (Set reasonable business hours 9-5 7 days a week)
+﻿F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
+    
     •   scheduling overlapping appointments (ONLY user cannot be in two appts at one time)
 
 H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
@@ -16,8 +12,8 @@ I.   Provide the ability to generate each of the following reports:
 
 
 WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
-- Implement modification functionality into EAAddUpdate modify on save event handler
+- I implemented the ability to successfully update appointments based on the given user parameters
 
 
 - What I intended to do next:
-    Get the modify appt button on calendar to send appt information to the 'textboxes' on the modify appt form
+    Implement the ability to add appointments here and in the database based on the given user parameters

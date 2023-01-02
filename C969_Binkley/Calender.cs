@@ -13,6 +13,7 @@ namespace C969_Binkley
     {
 		public static EditCustomersForm custForm = new EditCustomersForm();
 		public static EAAddUpdate editApptsForm = new EAAddUpdate();
+		public static int selectedApptIndex = 0;
 		public Calender()
         {
             InitializeComponent();
@@ -189,6 +190,7 @@ namespace C969_Binkley
 			EAAddUpdate.addOrMod = "mod";
 
 			Appointment apptSelected = (Appointment)apptDGV.CurrentRow.DataBoundItem;
+			selectedApptIndex = AppointmentList.appointments.IndexOf(apptSelected);
 
 			editApptsForm.TypeTextbox.Text = apptSelected.Type;
 			editApptsForm.CustomerDropdown.SelectedIndex = editApptsForm.CustomerDropdown.FindStringExact(apptSelected.Customer.CustomerName);

@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Binkley.Database;
 using C969_Binkley.DatabaseObjects;
 using C969_Binkley.StaticClasses;
+using MySql.Data.MySqlClient;
+using C969_Binkley;
 
 namespace C969_Binkley
 {
@@ -45,6 +48,7 @@ namespace C969_Binkley
             }
 
 
+
             if (addOrMod == "add")
             {
 
@@ -52,14 +56,48 @@ namespace C969_Binkley
 
             if (addOrMod == "mod")
             {
-                int indexOfApptToBeChanged = AppointmentList.appointments.IndexOf((Appointment)Calender.custForm.custDGV.CurrentRow.DataBoundItem);
+                int indexOfApptToBeChanged = Calender.selectedApptIndex;
 
                 AppointmentList.appointments[indexOfApptToBeChanged].Type = typeTextbox.Text;
                 AppointmentList.appointments[indexOfApptToBeChanged].Customer = (Customer)customerDopdown.SelectedItem;
                 AppointmentList.appointments[indexOfApptToBeChanged].Start = newDate.ToUniversalTime();
+                AppointmentList.appointments[indexOfApptToBeChanged].End = newDate.ToUniversalTime().AddMinutes(30);
                 AppointmentList.appointments[indexOfApptToBeChanged].User = (User)userDropdown.SelectedItem;
 
+                // Create a local reference to the Sql Connection in the DBConnection class
+                MySqlConnection sqlConnection = DBConnection.sqlConnection;
 
+                try
+                {
+                    // If the connection is not open, inform user and return null to get out of the function call
+                    if (!(sqlConnection.State == ConnectionState.Open))
+                    {
+                        MessageBox.Show("Connection to Database is closed.", "Connection Error");
+
+                        return;
+                    }
+
+                    string cmd = String.Format("BEGIN; " +
+                        "UPDATE appointment SET type = \'{0}\' WHERE appointmentId = {1};" +
+                        "UPDATE appointment SET customerId = {2} WHERE appointmentId = {1};" +
+                        "UPDATE appointment SET userId = {3} WHERE appointmentId = {1};" +
+                        "UPDATE appointment SET start = \'{4}\' WHERE appointmentId = {1};" +
+                        "UPDATE appointment SET end = \'{5}\' WHERE appointmentId = {1};" +
+                        "COMMIT;", AppointmentList.appointments[indexOfApptToBeChanged].Type, AppointmentList.appointments[indexOfApptToBeChanged].AppointmentId.ToString(), AppointmentList.appointments[indexOfApptToBeChanged].Customer.CustomerId.ToString(), AppointmentList.appointments[indexOfApptToBeChanged].User.UserId.ToString(), AppointmentList.appointments[indexOfApptToBeChanged].Start.ToString("yyyy-MM-dd H:mm:ss"), AppointmentList.appointments[indexOfApptToBeChanged].End.ToString("yyyy-MM-dd H:mm:ss"));
+
+                    // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+                    MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();
+                }
+
+                // If an error occurs, show a messagebox informing the user of the error and return null
+                catch (MySqlException exception)
+                {
+                    MessageBox.Show(exception.Message, "Appointment Update Error");
+
+                    return;
+                }
             }
 
             ClearTextboxes();
