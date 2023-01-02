@@ -12,6 +12,7 @@ namespace C969_Binkley
     public partial class Calender : Form
     {
 		public static EditCustomersForm custForm = new EditCustomersForm();
+		public static EAAddUpdate editApptsForm = new EAAddUpdate();
 		public Calender()
         {
             InitializeComponent();
@@ -170,13 +171,22 @@ namespace C969_Binkley
 		// Event handlers for the modification buttons to appointments
         private void calAddButton_Click(object sender, EventArgs e)
         {
+			EAAddUpdate.addOrMod = "add";
 
+			editApptsForm.Visible = true;
+			this.Visible = false;
         }
 
         private void calUpdateButton_Click(object sender, EventArgs e)
         {
+			EAAddUpdate.addOrMod = "mod";
 
-        }
+			Appointment apptSelected = (Appointment)apptDGV.CurrentRow.DataBoundItem;
+
+
+			editApptsForm.Visible = true;
+			this.Visible = false;
+		}
 
         private void calDeleteButton_Click(object sender, EventArgs e)
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Binkley.DatabaseObjects;
 
 namespace C969_Binkley
 {
@@ -25,14 +26,26 @@ namespace C969_Binkley
                 return;
             }
 
+            DateTime newDate = datetimepickerDay.Value.Date + datetimepickerTime.Value.TimeOfDay;
+
 
             if (addOrMod == "add")
             {
+                EAFLabel.Text = "Add";
+
 
             }
 
             if (addOrMod == "mod")
             {
+                EAFLabel.Text = "Update";
+
+                int indexOfApptToBeChanged = AppointmentList.appointments.IndexOf((Appointment)Calender.custForm.custDGV.CurrentRow.DataBoundItem);
+
+                AppointmentList.appointments[indexOfApptToBeChanged].Type = typeTextbox.Text;
+                AppointmentList.appointments[indexOfApptToBeChanged].Customer = (Customer)customerDopdown.SelectedItem;
+                AppointmentList.appointments[indexOfApptToBeChanged].Start = newDate;
+                AppointmentList.appointments[indexOfApptToBeChanged].User = (User)userDropdown.SelectedItem;
 
             }
 
@@ -45,7 +58,64 @@ namespace C969_Binkley
         {
             ClearTextboxes();
             this.Visible = false;
-            Calender.custForm.Visible = true;
+            LoginForm.calendar_month.Visible = true;
+        }
+
+        // Public getters/setters for main form attributes
+        public TextBox TypeTextbox
+        {
+            get
+            {
+                return this.typeTextbox;
+            }
+            set
+            {
+                this.typeTextbox = value;
+            }
+        }
+        public ComboBox CustomerDropdown
+        {
+            get
+            {
+                return this.customerDopdown;
+            }
+            set
+            {
+                this.customerDopdown = value;
+            }
+        }
+        public DateTimePicker DateTimePickerDay
+        {
+            get
+            {
+                return this.datetimepickerDay;
+            }
+            set
+            {
+                this.datetimepickerDay = value;
+            }
+        }
+        public DateTimePicker DateTimePickerTime
+        {
+            get
+            {
+                return this.datetimepickerTime;
+            }
+            set
+            {
+                this.datetimepickerTime = value;
+            }
+        }
+        public ComboBox UserDropdown
+        {
+            get
+            {
+                return this.userDropdown;
+            }
+            set
+            {
+                this.userDropdown = value;
+            }
         }
 
         // Void -> Void

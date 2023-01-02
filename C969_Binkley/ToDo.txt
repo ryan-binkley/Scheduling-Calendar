@@ -16,9 +16,8 @@ I.   Provide the ability to generate each of the following reports:
 
 
 WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
-- Added functionality to delete button - to database
+- Implement modification functionality into EAAddUpdate modify on save event handler
 
 
 - What I intended to do next:
-    Add functionality to add/update buttons on calendar
-    Make an edit appointment form
+    Get the modify appt button on calendar to send appt information to the 'textboxes' on the modify appt form
