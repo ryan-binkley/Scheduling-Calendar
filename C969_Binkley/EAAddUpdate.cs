@@ -21,6 +21,11 @@ namespace C969_Binkley
             this.customerDopdown.DataSource = CustomerList.listOfCustomers;
             UserList.listOfUsers = UserList.GetAllUsers();
             this.userDropdown.DataSource = UserList.listOfUsers;
+
+            this.CustomerDropdown.ResetText();
+            this.CustomerDropdown.SelectedIndex = -1;
+            this.UserDropdown.ResetText();
+            this.UserDropdown.SelectedIndex = -1;
         }
 
         private void saveButtonEAF_Click(object sender, EventArgs e)
@@ -31,7 +36,13 @@ namespace C969_Binkley
             }
 
             DateTime newDate = datetimepickerDay.Value.Date + datetimepickerTime.Value.TimeOfDay;
-            
+
+            if (newDate.ToUniversalTime().Hour < 9 || newDate.ToUniversalTime().Hour > 17)
+            {
+                MessageBox.Show("The operating business hours are 09:00 A.M. UTC to 05:00 P.M. UTC. Please adjust appointment time to be within these hours. Local and UTC times are located on the main form in the top left.", "Appointment Time Error", MessageBoxButtons.OK);
+
+                return;
+            }
 
 
             if (addOrMod == "add")
@@ -45,8 +56,9 @@ namespace C969_Binkley
 
                 AppointmentList.appointments[indexOfApptToBeChanged].Type = typeTextbox.Text;
                 AppointmentList.appointments[indexOfApptToBeChanged].Customer = (Customer)customerDopdown.SelectedItem;
-                AppointmentList.appointments[indexOfApptToBeChanged].Start = newDate;
+                AppointmentList.appointments[indexOfApptToBeChanged].Start = newDate.ToUniversalTime();
                 AppointmentList.appointments[indexOfApptToBeChanged].User = (User)userDropdown.SelectedItem;
+
 
             }
 
@@ -56,7 +68,7 @@ namespace C969_Binkley
             this.UserDropdown.ResetText();
             this.UserDropdown.SelectedIndex = -1;
             this.Visible = false;
-            Calender.custForm.Visible = true;
+            LoginForm.calendar_month.Visible = true;
         }
 
         private void cancelButtonEAF_Click(object sender, EventArgs e)
