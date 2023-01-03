@@ -8,11 +8,15 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Country
     {
-        public int uniqueID = 1000;
+        public static int uniqueID = 1000;
         public Country()
         {
             uniqueID++;
             countryId = uniqueID;
+        }
+        public Country(string inpString)
+        {
+
         }
         public Country(int countryID, string countryName)
         {

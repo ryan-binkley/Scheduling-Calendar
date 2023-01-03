@@ -38,7 +38,7 @@ namespace C969_Binkley
                 return;
             }
 
-            DateTime newDate = datetimepickerDay.Value.Date + datetimepickerTime.Value.TimeOfDay;
+            DateTime newDate = (datetimepickerDay.Value.Date + datetimepickerTime.Value.TimeOfDay).AddSeconds(-datetimepickerTime.Value.Second);
 
             if (newDate.ToUniversalTime().Hour < 9 || newDate.ToUniversalTime().Hour > 17)
             {
@@ -51,12 +51,60 @@ namespace C969_Binkley
 
             if (addOrMod == "add")
             {
+                Appointment apptToAdd = new Appointment();
+
+                apptToAdd.Start = newDate.ToUniversalTime();
+                apptToAdd.End = newDate.ToUniversalTime().AddMinutes(30);
+
+                if(!CheckAvailability(apptToAdd, LoginForm.currentUser))
+                {
+                    return;
+                }
+
+                apptToAdd.Type = typeTextbox.Text;
+                apptToAdd.Customer = (Customer)CustomerDropdown.SelectedItem;
+                apptToAdd.User = (User)UserDropdown.SelectedItem;
+                AppointmentList.AddAppointment(apptToAdd);
+
+                // Create a local reference to the Sql Connection in the DBConnection class
+                MySqlConnection sqlConnection = DBConnection.sqlConnection;
+
+                try
+                {
+                    // If the connection is not open, inform user and return null to get out of the function call
+                    if (!(sqlConnection.State == ConnectionState.Open))
+                    {
+                        MessageBox.Show("Connection to Database is closed.", "Connection Error");
+
+                        return;
+                    }
+
+                    string cmd = String.Format("INSERT INTO appointment (appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ({0}, {1}, {2}, \'not needed\', \'not needed\', \'not needed\', \'not needed\', \'{3}\', \'not needed\', \'{4}\', \'{5}\', NOW(), \'test\', NOW(), \'test\');", apptToAdd.AppointmentId.ToString(), apptToAdd.Customer.CustomerId.ToString(), apptToAdd.User.UserId.ToString(), apptToAdd.Type, apptToAdd.Start.AddSeconds(-apptToAdd.Start.Second).ToString("yyyy-MM-dd H:mm:ss"), apptToAdd.End.AddSeconds(-apptToAdd.End.Second).ToString("yyyy-MM-dd H:mm:ss"));
+
+                    // Create new instance of MySqlCommand with the SqlCmd and the SqlConnection as parameters
+                    MySqlCommand mySqlCmd = new MySqlCommand(cmd, sqlConnection);
+
+                    mySqlCmd.ExecuteNonQuery();
+                }
+
+                // If an error occurs, show a messagebox informing the user of the error and return null
+                catch (MySqlException exception)
+                {
+                    MessageBox.Show(exception.Message, "Appointment Add Error");
+
+                    return;
+                }
 
             }
 
             if (addOrMod == "mod")
             {
                 int indexOfApptToBeChanged = Calender.selectedApptIndex;
+
+                if(!CheckAvailability(AppointmentList.appointments[indexOfApptToBeChanged], LoginForm.currentUser))
+                {
+                    return;
+                }
 
                 AppointmentList.appointments[indexOfApptToBeChanged].Type = typeTextbox.Text;
                 AppointmentList.appointments[indexOfApptToBeChanged].Customer = (Customer)customerDopdown.SelectedItem;
@@ -208,6 +256,32 @@ namespace C969_Binkley
             {
                 MessageBox.Show("There cannot be any empty inputs!", "Customer Edit Error", MessageBoxButtons.OK);
                 return false;
+            }
+
+            return true;
+        }
+
+        // Appointment -> Boolean
+        // This function takes in the appointment being modified/added and checks if the appointment times conflict with any others where the user is the same
+        public bool CheckAvailability(Appointment inpAppt, User inpUser)
+        {
+            List<Appointment> tempList = new List<Appointment>();
+
+            for(int i = 0; i < AppointmentList.appointments.Count; i++)
+            {
+                if (AppointmentList.appointments[i].User.UserId == inpUser.UserId)
+                {
+                    tempList.Add(AppointmentList.appointments[i]);
+                }
+            }
+
+            foreach (Appointment appt in tempList)
+            {
+                if((appt.Start < inpAppt.End) && (inpAppt.Start < appt.End))
+                {
+                    MessageBox.Show("The consultant cannot be in two appointments at the same time.", "Appointment Conflict Error", MessageBoxButtons.OK);
+                    return false;
+                }
             }
 
             return true;

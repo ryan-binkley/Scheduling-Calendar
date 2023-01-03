@@ -65,23 +65,23 @@ namespace C969_Binkley
 				// While there is a 'record' after the one it is on, continue to the next record
 				while (sqlReader.Read())
 				{
-					Appointment apptToBeAddedToList = new Appointment();
+					Appointment apptToBeAddedToList = new Appointment("NA");
 
 					apptToBeAddedToList.AppointmentId = sqlReader.GetInt32("appointmentId");
-					apptToBeAddedToList.Customer = new Customer();
+					apptToBeAddedToList.Customer = new Customer("NA");
 					apptToBeAddedToList.Customer.CustomerId = sqlReader.GetInt32("customerId");
 					apptToBeAddedToList.Customer.CustomerName = sqlReader.GetString("customerName");
-					apptToBeAddedToList.User = new User();
+					apptToBeAddedToList.User = new User("NA");
 					apptToBeAddedToList.User.UserId = sqlReader.GetInt32("userId");
 					apptToBeAddedToList.User.UserName = sqlReader.GetString("userName");
 					apptToBeAddedToList.Type = sqlReader.GetString("type");
 					apptToBeAddedToList.Start = sqlReader.GetDateTime("start");
 					apptToBeAddedToList.End = sqlReader.GetDateTime("end");
-					apptToBeAddedToList.Customer.Address = new Address();
+					apptToBeAddedToList.Customer.Address = new Address("NA");
 					apptToBeAddedToList.Customer.AddressString = sqlReader.GetString("address");
-					apptToBeAddedToList.Customer.Address.City = new City();
+					apptToBeAddedToList.Customer.Address.City = new City("NA");
 					apptToBeAddedToList.Customer.CityName = sqlReader.GetString("city");
-					apptToBeAddedToList.Customer.Address.City.Country = new Country();
+					apptToBeAddedToList.Customer.Address.City.Country = new Country("NA");
 					apptToBeAddedToList.Customer.CountryName = sqlReader.GetString("country");
 
 					listToReturn.Add(apptToBeAddedToList);

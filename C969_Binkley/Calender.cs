@@ -239,5 +239,11 @@ namespace C969_Binkley
 
 			AppointmentList.DeleteAppointment(apptSelected);
 		}
+
+        private void Calender_VisibleChanged(object sender, EventArgs e)
+        {
+			AppointmentList.appointments = AppointmentList.GetAllAppointments();
+			apptDGV.DataSource = AppointmentList.appointments;
+		}
     }
 }

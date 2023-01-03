@@ -367,6 +367,7 @@ namespace C969_Binkley
             this.Controls.Add(this.timePanel);
             this.Name = "Calender";
             this.Text = "Calender-Month";
+            this.VisibleChanged += new System.EventHandler(this.Calender_VisibleChanged);
             this.timePanel.ResumeLayout(false);
             this.timePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).EndInit();

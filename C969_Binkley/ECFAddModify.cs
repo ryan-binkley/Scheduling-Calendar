@@ -42,14 +42,13 @@ namespace C969_Binkley
                 saveCust.Address.City = new City();
                 saveCust.Address.City.Country = new Country();
 
-                saveCust.CustomerId = saveCust.uniqueID;
                 saveCust.CustomerName = this.customerNameTextboxECF.Text;
-                saveCust.Address.AddressId = saveCust.Address.uniqueID;
+                saveCust.Address.AddressId = Address.uniqueID;
                 saveCust.AddressString = this.addressTextboxECF.Text;
                 saveCust.Phone = this.phoneTextboxECF.Text;
-                saveCust.Address.City.CityId = saveCust.Address.City.uniqueID;
+                saveCust.Address.City.CityId = City.uniqueID;
                 saveCust.CityName = this.cityTextboxECF.Text;
-                saveCust.Address.City.Country.CountryId = saveCust.Address.City.Country.uniqueID;
+                saveCust.Address.City.Country.CountryId = Country.uniqueID;
                 saveCust.CountryName = this.countryTextboxECF.Text;
 
                 CustomerList.AddCustomer(saveCust);
@@ -97,7 +96,7 @@ namespace C969_Binkley
                 // If an error occurs, show a messagebox informing the user of the error and return null
                 catch (MySqlException exception)
                 {
-                    MessageBox.Show(exception.Message, "ECFAddModify Error");
+                    MessageBox.Show(exception.Message, "ECFAdd Error");
 
                     return;
                 }
@@ -140,7 +139,7 @@ namespace C969_Binkley
                 // If an error occurs, show a messagebox informing the user of the error and return null
                 catch (MySqlException exception)
                 {
-                    MessageBox.Show(exception.Message, "ECFAddModify Error");
+                    MessageBox.Show(exception.Message, "ECFModify Error");
 
                     return;
                 }

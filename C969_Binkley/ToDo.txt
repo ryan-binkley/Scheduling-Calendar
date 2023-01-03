@@ -10,10 +10,7 @@ I.   Provide the ability to generate each of the following reports:
 •   one additional report of your choice
 
 
-
 WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
-- I implemented the ability to successfully update appointments based on the given user parameters
 
 
 - What I intended to do next:
-    Implement the ability to add appointments here and in the database based on the given user parameters

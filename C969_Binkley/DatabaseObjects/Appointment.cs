@@ -9,12 +9,18 @@ namespace C969_Binkley
 {
     public class Appointment
     {
-        int uniqueID = 1;
+        
+        public static int uniqueID = 1000;
 
         public Appointment()
         {
             uniqueID++;
             appointmentId = uniqueID;
+        }
+
+        public Appointment(string inpString)
+        {
+
         }
         public Appointment(Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
         {

@@ -16,7 +16,7 @@ namespace C969_Binkley
 	{
 		public static Calender calendar_month = new Calender();
 		static string user;
-		static User currentUser;
+		public static User currentUser;
 		
 		public LoginForm()
 		{
