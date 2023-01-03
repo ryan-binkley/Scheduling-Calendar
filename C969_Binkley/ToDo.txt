@@ -1,8 +1,4 @@
-﻿F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
-    
-    •   scheduling overlapping appointments (ONLY user cannot be in two appts at one time)
-
-H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
+﻿H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
 
 I.   Provide the ability to generate each of the following reports:
 •   number of appointment types by month - Given a type and a month, how many appts match this? Not a list, a count.

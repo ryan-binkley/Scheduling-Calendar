@@ -43,12 +43,9 @@ namespace C969_Binkley
                 saveCust.Address.City.Country = new Country();
 
                 saveCust.CustomerName = this.customerNameTextboxECF.Text;
-                saveCust.Address.AddressId = Address.uniqueID;
                 saveCust.AddressString = this.addressTextboxECF.Text;
                 saveCust.Phone = this.phoneTextboxECF.Text;
-                saveCust.Address.City.CityId = City.uniqueID;
                 saveCust.CityName = this.cityTextboxECF.Text;
-                saveCust.Address.City.Country.CountryId = Country.uniqueID;
                 saveCust.CountryName = this.countryTextboxECF.Text;
 
                 CustomerList.AddCustomer(saveCust);

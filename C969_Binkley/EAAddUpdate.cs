@@ -56,7 +56,10 @@ namespace C969_Binkley
                 apptToAdd.Start = newDate.ToUniversalTime();
                 apptToAdd.End = newDate.ToUniversalTime().AddMinutes(30);
 
-                if(!CheckAvailability(apptToAdd, LoginForm.currentUser))
+                User tempUser = new User("NA");
+                tempUser = (User)UserDropdown.SelectedItem;
+
+                if (!CheckAvailability(apptToAdd, tempUser.UserId))
                 {
                     return;
                 }
@@ -100,8 +103,10 @@ namespace C969_Binkley
             if (addOrMod == "mod")
             {
                 int indexOfApptToBeChanged = Calender.selectedApptIndex;
+                User tempUser = new User("NA");
+                tempUser = (User)UserDropdown.SelectedItem;
 
-                if(!CheckAvailability(AppointmentList.appointments[indexOfApptToBeChanged], LoginForm.currentUser))
+                if(!CheckAvailability(AppointmentList.appointments[indexOfApptToBeChanged], tempUser.UserId))
                 {
                     return;
                 }
@@ -263,13 +268,13 @@ namespace C969_Binkley
 
         // Appointment -> Boolean
         // This function takes in the appointment being modified/added and checks if the appointment times conflict with any others where the user is the same
-        public bool CheckAvailability(Appointment inpAppt, User inpUser)
+        public bool CheckAvailability(Appointment inpAppt, int inpUserId)
         {
             List<Appointment> tempList = new List<Appointment>();
 
             for(int i = 0; i < AppointmentList.appointments.Count; i++)
             {
-                if (AppointmentList.appointments[i].User.UserId == inpUser.UserId)
+                if (AppointmentList.appointments[i].User.UserId == inpUserId)
                 {
                     tempList.Add(AppointmentList.appointments[i]);
                 }

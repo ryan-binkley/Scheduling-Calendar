@@ -8,11 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Customer
     {
-        public static int uniqueID = 1000;
+        Random rng = new Random();
         public Customer()
         {
-            uniqueID++;
-            customerId = uniqueID;
+            customerId = rng.Next(1, 1000000);
         }
 
         public Customer(string inpString)
@@ -23,7 +22,6 @@ namespace C969_Binkley.DatabaseObjects
         {
             CustomerId = custID;
             CustomerName = custName;
-            uniqueID++;
         }
 
         private int customerId;

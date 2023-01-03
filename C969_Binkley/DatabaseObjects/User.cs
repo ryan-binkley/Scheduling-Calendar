@@ -8,11 +8,10 @@ namespace C969_Binkley
 {
     public class User
     {
-        public static int uniqueID = 100;
+        Random rng = new Random();
         public User()
         {
-            uniqueID++;
-            userId = uniqueID;
+            userId = rng.Next(1, 1000000);
         }
 
         public User(string inpString)

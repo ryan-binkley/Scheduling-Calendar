@@ -8,11 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Address
     {
-        public static int uniqueID = 1000;
+        Random rng = new Random();
         public Address()
         {
-            uniqueID++;
-            addressId = uniqueID;
+            addressId = rng.Next(1, 1000000);
         }
 
         public Address(string inpString)

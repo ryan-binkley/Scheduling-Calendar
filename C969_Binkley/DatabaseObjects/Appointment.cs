@@ -9,29 +9,24 @@ namespace C969_Binkley
 {
     public class Appointment
     {
-        
-        public static int uniqueID = 1000;
-
+        Random rng = new Random();
         public Appointment()
         {
-            uniqueID++;
-            appointmentId = uniqueID;
+            
+            appointmentId = rng.Next(1, 1000000);
         }
 
         public Appointment(string inpString)
         {
 
         }
-        public Appointment(Customer inpCustomer, User inpUser, int custID, string apptType, DateTime apptStart, DateTime apptEnd)
+        public Appointment(Customer inpCustomer, User inpUser, string apptType, DateTime apptStart, DateTime apptEnd)
         {
-            AppointmentId = uniqueID;
             Customer = inpCustomer;
             User = inpUser;
             Type = apptType;
             Start = apptStart;
             End = apptEnd;
-
-            uniqueID++;
         }
 
         private int appointmentId;

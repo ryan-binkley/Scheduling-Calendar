@@ -8,11 +8,10 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Country
     {
-        public static int uniqueID = 1000;
+        Random rng = new Random();
         public Country()
         {
-            uniqueID++;
-            countryId = uniqueID;
+            countryId = rng.Next(1, 1000000);
         }
         public Country(string inpString)
         {
