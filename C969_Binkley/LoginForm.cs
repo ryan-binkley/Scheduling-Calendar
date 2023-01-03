@@ -9,6 +9,7 @@ using C969_Binkley.Database;
 using System.IO;
 using System.Globalization;
 using System.Threading;
+using C969_Binkley.StaticClasses;
 
 namespace C969_Binkley
 {
@@ -59,7 +60,8 @@ namespace C969_Binkley
 				calendar_month.Visible = true;
 				this.Visible = false;
 				currentUser = GetUser(user);
-            }
+				CheckUpcoming(currentUser.UserId);
+			}
 			else
             {
 				LogAuthentication(usernameTextbox.Text, passwordTextbox.Text, false);
@@ -261,7 +263,7 @@ namespace C969_Binkley
 			authLog.Close();
         }
 
-		// string -> User
+		// String -> User
 		// This function grabs the user based on the input string for the username
 		private User GetUser(string username)
         {
@@ -330,5 +332,30 @@ namespace C969_Binkley
 				return null;
 			}
 		}
-    }
+
+		// Int -> Void
+		// This function takes in the user who has successfully authenticated and checks if they have an appointment in 15 mins or less upon login
+		public void CheckUpcoming(int inpUserId)
+		{
+			List<Appointment> tempList = new List<Appointment>();
+
+			for (int i = 0; i < AppointmentList.appointments.Count; i++)
+			{
+				if (AppointmentList.appointments[i].User.UserId == inpUserId)
+				{
+					tempList.Add(AppointmentList.appointments[i]);
+				}
+			}
+
+			foreach (Appointment appt in tempList)
+            {
+				TimeSpan ts = appt.Start.ToLocalTime() - DateTime.Now;
+
+				if ((ts.Minutes <= 15 && ts.Minutes > 0 && ts.Days == 0) && (appt.Start.ToLocalTime().Hour == DateTime.Now.Hour))
+                {
+					MessageBox.Show(String.Format("You have an appointment in " + ts.Minutes + " minutes."));
+                }
+            }
+		}
+	}
 }
