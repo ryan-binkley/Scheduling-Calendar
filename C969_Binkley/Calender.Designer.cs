@@ -55,6 +55,7 @@ namespace C969_Binkley
             this.calUpdateButton = new System.Windows.Forms.Button();
             this.calDeleteButton = new System.Windows.Forms.Button();
             this.yearLabel = new System.Windows.Forms.Label();
+            this.generateReportsButton = new System.Windows.Forms.Button();
             this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -347,11 +348,24 @@ namespace C969_Binkley
             this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.yearLabel.Visible = false;
             // 
+            // generateReportsButton
+            // 
+            this.generateReportsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.generateReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.generateReportsButton.Location = new System.Drawing.Point(257, 655);
+            this.generateReportsButton.Name = "generateReportsButton";
+            this.generateReportsButton.Size = new System.Drawing.Size(119, 56);
+            this.generateReportsButton.TabIndex = 13;
+            this.generateReportsButton.Text = "Generate Reports";
+            this.generateReportsButton.UseVisualStyleBackColor = true;
+            this.generateReportsButton.Click += new System.EventHandler(this.generateReportsButton_Click);
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.generateReportsButton);
             this.Controls.Add(this.yearLabel);
             this.Controls.Add(this.calDeleteButton);
             this.Controls.Add(this.calUpdateButton);
@@ -401,5 +415,6 @@ namespace C969_Binkley
         private System.Windows.Forms.Button calUpdateButton;
         private System.Windows.Forms.Button calDeleteButton;
         private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.Button generateReportsButton;
     }
 }

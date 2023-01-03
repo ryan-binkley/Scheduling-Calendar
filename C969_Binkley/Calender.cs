@@ -245,5 +245,10 @@ namespace C969_Binkley
 			AppointmentList.appointments = AppointmentList.GetAllAppointments();
 			apptDGV.DataSource = AppointmentList.appointments;
 		}
+
+        private void generateReportsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,12 +1,5 @@
-﻿H.  Write code to provide reminders and alerts 15 minutes in advance of an appointment, based on the user’s log-in. Check all appts for that user, do it only at login, and do not use the 'current time' in the database for this.
-
+﻿
 I.   Provide the ability to generate each of the following reports:
 •   number of appointment types by month - Given a type and a month, how many appts match this? Not a list, a count.
 •   the schedule for each user 
 •   one additional report of your choice
-
-
-WHERE I LEFT OFFFFFFFFFFFFFFFFFFFFF
-
-
-- What I intended to do next:
