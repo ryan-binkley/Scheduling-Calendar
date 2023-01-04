@@ -13,6 +13,7 @@ namespace C969_Binkley
     {
 		public static EditCustomersForm custForm = new EditCustomersForm();
 		public static EAAddUpdate editApptsForm = new EAAddUpdate();
+		public static Reports reportForm = new Reports();
 		public static int selectedApptIndex = 0;
 		public Calender()
         {
@@ -248,7 +249,8 @@ namespace C969_Binkley
 
         private void generateReportsButton_Click(object sender, EventArgs e)
         {
-
+			reportForm.Visible = true;
+			this.Visible = false;
         }
     }
 }
