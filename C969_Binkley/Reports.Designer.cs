@@ -40,7 +40,7 @@ namespace C969_Binkley
             // 
             this.tbmButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tbmButton.Location = new System.Drawing.Point(88, 53);
+            this.tbmButton.Location = new System.Drawing.Point(88, 47);
             this.tbmButton.Name = "tbmButton";
             this.tbmButton.Size = new System.Drawing.Size(119, 56);
             this.tbmButton.TabIndex = 9;
@@ -52,7 +52,7 @@ namespace C969_Binkley
             // 
             this.consultantScheduleButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.consultantScheduleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.consultantScheduleButton.Location = new System.Drawing.Point(436, 53);
+            this.consultantScheduleButton.Location = new System.Drawing.Point(436, 47);
             this.consultantScheduleButton.Name = "consultantScheduleButton";
             this.consultantScheduleButton.Size = new System.Drawing.Size(119, 56);
             this.consultantScheduleButton.TabIndex = 10;
@@ -64,7 +64,7 @@ namespace C969_Binkley
             // 
             this.userScheduleButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userScheduleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.userScheduleButton.Location = new System.Drawing.Point(775, 53);
+            this.userScheduleButton.Location = new System.Drawing.Point(775, 47);
             this.userScheduleButton.Name = "userScheduleButton";
             this.userScheduleButton.Size = new System.Drawing.Size(119, 56);
             this.userScheduleButton.TabIndex = 11;
@@ -74,10 +74,11 @@ namespace C969_Binkley
             // 
             // mainTextbox
             // 
-            this.mainTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainTextbox.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTextbox.Location = new System.Drawing.Point(88, 157);
             this.mainTextbox.Multiline = true;
             this.mainTextbox.Name = "mainTextbox";
+            this.mainTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.mainTextbox.Size = new System.Drawing.Size(806, 440);
             this.mainTextbox.TabIndex = 12;
             // 
@@ -85,7 +86,7 @@ namespace C969_Binkley
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.exitButton.Location = new System.Drawing.Point(436, 659);
+            this.exitButton.Location = new System.Drawing.Point(436, 653);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(119, 56);
             this.exitButton.TabIndex = 13;
@@ -97,7 +98,7 @@ namespace C969_Binkley
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.mainTextbox);
             this.Controls.Add(this.userScheduleButton);

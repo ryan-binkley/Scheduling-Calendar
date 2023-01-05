@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -103,6 +104,11 @@ namespace C969_Binkley
         public int AppointmentYear
         {
             get { return start.ToLocalTime().Year; }
+        }
+
+        public string AppointmentMonthString
+        {
+            get { return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(AppointmentMonth); }
         }
     }
 }

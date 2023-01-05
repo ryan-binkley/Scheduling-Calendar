@@ -108,14 +108,11 @@ namespace C969_Binkley
 				// Create a SqlDataReader to execute and read the output of the SqlCommand
 				MySqlDataReader sqlReader = mySqlCmd.ExecuteReader();
 
-				// Create string variable to hold each of the results of the sql command
-				string username;
-
 				// While there is a 'record' after the one it is on, continue to the next record
 				while (sqlReader.Read())
                 {
 					// Set username string to every value of the userName column of the user table
-					username = sqlReader.GetString("userName");
+					string username = sqlReader.GetString("userName");
 
 					// If the user exists, close the SqlDataReader and return true
 					if (username.ToUpper() == usernameTextbox.Text.ToUpper())
