@@ -11,14 +11,19 @@ namespace C969_Binkley
 {
     public partial class Calender : Form
     {
+		// Creating the new forms to be able to travel to/from
 		public static EditCustomersForm custForm = new EditCustomersForm();
 		public static EAAddUpdate editApptsForm = new EAAddUpdate();
 		public static Reports reportForm = new Reports();
+
+		// Properties for the class itself
 		public static int selectedApptIndex = 0;
 		public Calender()
         {
             InitializeComponent();
 			StartTimer();
+
+			// Items to be initialized upon starting the form
 			AppointmentList.appointments = AppointmentList.GetAllAppointments();
 			apptDGV.AutoGenerateColumns = false;
 			apptDGV.DataSource = AppointmentList.appointments;
@@ -33,7 +38,7 @@ namespace C969_Binkley
 
 
 		// Void -> Void
-		// This function sets up a timer and adds a one second update interval and the timer_Tick event handler to it
+		// This method sets up a timer and adds a one second update interval and the timer_Tick event handler to it
 		private void StartTimer()
 		{
 			System.Windows.Forms.Timer timer = null;
@@ -53,14 +58,14 @@ namespace C969_Binkley
 		}
 
 		// Void -> DataGridView
-		// This function allows other classes to access and work with the Calendar DataGridView
+		// This method allows other classes to access and work with the Calendar DataGridView
 		public DataGridView GetCurrentDataGridView()
         {
 			return this.appointmentCalendarDataGridView;
         }
 
 		// Void -> Void
-		// This function will make the month label and buttons visible
+		// This method will make the month label and buttons visible
 		public void ShowMonth()
         {
 			this.dateLabel.Text = CurrentDate.currentMonthDateTime.ToString("MMMM");
@@ -72,7 +77,7 @@ namespace C969_Binkley
         }
 
 		// Void -> Void
-		// This function will make the month label and buttons not visible
+		// This method will make the month label and buttons not visible
 		public void DoNotShowMonth()
 		{
 			this.dateLabel.Visible = false;
@@ -82,7 +87,7 @@ namespace C969_Binkley
 		}
 
 		// Void -> Void
-		// This function will make the month label and buttons visible
+		// This method will make the month label and buttons visible
 		public void ShowWeek()
 		{
 			this.dateLabel.Text = CurrentDate.currentWeekStartDateTime.ToString("M") + " - " + CurrentDate.currentWeekEndDateTime.ToString("M");
@@ -94,7 +99,7 @@ namespace C969_Binkley
 		}
 
 		// Void -> Void
-		// This function will make the month label and buttons not visible
+		// This method will make the month label and buttons not visible
 		public void DoNotShowWeek()
 		{
 			this.dateLabel.Visible = false;
@@ -150,6 +155,7 @@ namespace C969_Binkley
             }
         }
 
+		// Event handler for the next date button
         private void nextDateButton_Click(object sender, EventArgs e)
         {
 			if (monthAppointmentsRadioButton.Checked == true)
@@ -241,12 +247,14 @@ namespace C969_Binkley
 			AppointmentList.DeleteAppointment(apptSelected);
 		}
 
+		// Event handler for when the form changes visibility
         private void Calender_VisibleChanged(object sender, EventArgs e)
         {
 			AppointmentList.appointments = AppointmentList.GetAllAppointments();
 			apptDGV.DataSource = AppointmentList.appointments;
 		}
 
+		// Event handler for going to the reports form to generate reports
         private void generateReportsButton_Click(object sender, EventArgs e)
         {
 			reportForm.Visible = true;

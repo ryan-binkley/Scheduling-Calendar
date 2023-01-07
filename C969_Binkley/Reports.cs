@@ -21,6 +21,7 @@ namespace C969_Binkley
             InitializeComponent();
         }
 
+        // Event handlers for the buttons on the report screen
         private void tbmButton_Click(object sender, EventArgs e)
         {
             mainTextbox.Text = "Report for how many types were scheduled in each month:\r\n\r\n";
@@ -45,6 +46,11 @@ namespace C969_Binkley
             this.Visible = false;
         }
 
+        // Assistant methods for generating the reports
+
+
+        // Void -> Void
+        // This method compares the types of appointments in the database against the months they can be found in and generates a report in the textbox with the total number of each type/month combo.
         private void tbmReport()
         {
             List<string> typesInAppts = new List<string>();
@@ -81,6 +87,8 @@ namespace C969_Binkley
             }
         }
 
+        // Void -> Void
+        // This method takes each consultant and compiles a list of their appointments and who/when they are with and generates a report in the textbox.
         private void ConsultantScheduleReport()
         {
             string[] users = new string[UserList.listOfUsers.Count];
@@ -104,6 +112,8 @@ namespace C969_Binkley
             }
         }
 
+        // Void -> Void
+        // This method takes each customer and compiles a list of their appointments and who/when they are with and generates a report in the textbox.
         private void CustomerScheduleReport()
         {
             string[] customers = new string[CustomerList.listOfCustomers.Count];

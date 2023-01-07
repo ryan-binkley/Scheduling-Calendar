@@ -23,21 +23,21 @@ namespace C969_Binkley
 		// Methods to modify the list should be put under here.
 
 		// Appointment -> Void
-		// This function adds the input appointment to the appointments bindinglist
+		// This method adds the input appointment to the appointments bindinglist
 		public static void AddAppointment(Appointment inpAppt)
         {
             appointments.Add(inpAppt);
         }
 
         // Appointment -> Void
-        // This function deletes the appointment from the appointments bindinglist
+        // This method deletes the appointment from the appointments bindinglist
         public static void DeleteAppointment(Appointment inpAppt)
         {
             appointments.Remove(inpAppt);
         }
 
         // Void -> BindingList<Appointment>
-        // This functions simply gets all the appointments in the database and returns them in a bindinglist
+        // This method simply gets all the appointments in the database and returns them in a bindinglist
         public static BindingList<Appointment> GetAllAppointments()
         {
 			// Create a local reference to the Sql Connection in the DBConnection class

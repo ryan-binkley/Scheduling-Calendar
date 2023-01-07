@@ -11,9 +11,12 @@ namespace C969_Binkley.Database
 {
     public class DBConnection
     {
+		// These properties make it easier to grab information from the MySql database.
 		public static MySqlConnection sqlConnection { get; set; }
 		public static string getAllRelevantInformation = "SELECT * FROM appointment JOIN user ON appointment.userId = user.userId JOIN customer ON appointment.customerId = customer.customerId JOIN address ON customer.addressId = address.addressId JOIN city ON address.cityId = city.cityId JOIN country ON city.countryId = country.countryId";
 
+		// Void -> Void
+		// This method looks to create and start the static connection between the application and the database.
 		public static void startConnection()
         {
 			// Get the connection string for Sql DB from App.config
@@ -28,13 +31,13 @@ namespace C969_Binkley.Database
 				// Open the db connection to be worked on
 				sqlConnection.Open();
 			}
-
 			catch (MySqlException exception)
 			{
-				MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
+				MessageBox.Show(exception.Message, "SQL Database Error", MessageBoxButtons.OK);
 			}
 		}
-
+		// Void -> Void
+		// This method looks to close the static connection between the application and the database.
 		public static void closeConnection()
         {
 			try
@@ -50,7 +53,7 @@ namespace C969_Binkley.Database
 
 			catch (MySqlException exception)
 			{
-				MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
+				MessageBox.Show(exception.Message, "SQL Database Error", MessageBoxButtons.OK);
 			}
 		}
     }

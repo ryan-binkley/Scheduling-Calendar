@@ -16,6 +16,7 @@ namespace C969_Binkley
 {
     public partial class ECFAddModify : Form
     {
+        // Static property for this class
         public static string addOrMod = "";
         public ECFAddModify()
         {
@@ -23,7 +24,7 @@ namespace C969_Binkley
         }
 
 
-
+        // Event handlers for the save/cancel buttons
         private void saveButtonECF_Click(object sender, EventArgs e)
         {
             if (!ValidateInput())
@@ -169,7 +170,7 @@ namespace C969_Binkley
         }
 
         // void -> Boolean
-        // This function ensures that no textboxes are left empty
+        // This method ensures that no textboxes are left empty
         public bool ValidateInput()
         {
             foreach (Control txtBox in this.Controls)

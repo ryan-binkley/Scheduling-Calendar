@@ -8,9 +8,11 @@ namespace C969_Binkley
 {
     public class User
     {
+        // Create an instance of the Random class to make a random number generator
         Random rng = new Random();
         public User()
         {
+            // Uses the Random class to make a psuedo-random number between 1 and 1,000,000 to decrease the odds of non-unique numbers being assigned as the ID.
             userId = rng.Next(1, 1000000);
         }
 

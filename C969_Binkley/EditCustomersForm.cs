@@ -16,10 +16,13 @@ namespace C969_Binkley
 {
     public partial class EditCustomersForm : Form
     {
+        // Static property to make a new form to travel to/from
         public static ECFAddModify ecfForm = new ECFAddModify();
         public EditCustomersForm()
         {
             InitializeComponent();
+
+            // Items to be modified upon initialization of this form
             CustomerList.listOfCustomers = CustomerList.GetAllCustomers();
             custDGV.AutoGenerateColumns = false;
             custDGV.DataSource = CustomerList.listOfCustomers;

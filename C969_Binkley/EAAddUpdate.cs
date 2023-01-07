@@ -17,10 +17,13 @@ namespace C969_Binkley
 {
     public partial class EAAddUpdate : Form
     {
+        // Static property for this class
         public static string addOrMod = "";
         public EAAddUpdate()
         {
             InitializeComponent();
+
+            // Items to be modified upon initialization of this form
             this.customerDopdown.DataSource = CustomerList.listOfCustomers;
             UserList.listOfUsers = UserList.GetAllUsers();
             this.userDropdown.DataSource = UserList.listOfUsers;
@@ -31,6 +34,7 @@ namespace C969_Binkley
             this.UserDropdown.SelectedIndex = -1;
         }
 
+        // Event handlers for clicking the save/cancel buttons
         private void saveButtonEAF_Click(object sender, EventArgs e)
         {
             if (!ValidateInput())
@@ -266,7 +270,7 @@ namespace C969_Binkley
             return true;
         }
 
-        // Appointment -> Boolean
+        // Appointment Int -> Boolean
         // This function takes in the appointment being modified/added and checks if the appointment times conflict with any others where the user is the same
         public bool CheckAvailability(Appointment inpAppt, int inpUserId)
         {
@@ -292,6 +296,7 @@ namespace C969_Binkley
             return true;
         }
 
+        // Event handler for when this form's visibility changes
         private void EAAddUpdate_VisibleChanged(object sender, EventArgs e)
         {
             if (addOrMod == "add")

@@ -23,21 +23,21 @@ namespace C969_Binkley.StaticClasses
         // Methods to modify the list should be put under here.
 
         // Customer -> Void
-        // This function takes the input customer and adds them to the listOfCustomers BindingList
+        // This method takes the input customer and adds them to the listOfCustomers BindingList
         public static void AddCustomer(Customer inpCustomer)
         {
             listOfCustomers.Add(inpCustomer);
         }
 
         // Customer -> Void
-        // This function takes the input customer and deletes them from the listOfCustomers BindingList
+        // This method takes the input customer and deletes them from the listOfCustomers BindingList
         public static void DeleteCustomer(Customer inpCustomer)
         {
             listOfCustomers.Remove(inpCustomer);
         }
 
 		// Void -> BindingList<Customer>
-		// This functions simply gets all the customers in the database and returns them in a bindinglist
+		// This method simply gets all the customers in the database and returns them in a bindinglist
 		public static BindingList<Customer> GetAllCustomers()
 		{
 			// Create a local reference to the Sql Connection in the DBConnection class

@@ -15,12 +15,14 @@ namespace C969_Binkley
 {
 	public partial class LoginForm : Form
 	{
+		// Static properties for this class
 		public static Calender calendar_month = new Calender();
 		static string user;
 		public static User currentUser;
 		
 		public LoginForm()
 		{
+			// These control flow statements check what region the user is in(Anywhere with the culture code of 'es') and changes the culture to the local culture.
 			if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "es")
 				Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("es");
 			else if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
@@ -79,7 +81,7 @@ namespace C969_Binkley
 		}
 
 		// Void -> Boolean
-		// This function returns true if the user in the textbox 'exists' in the database, returns false if it doesn't
+		// This method returns true if the user in the textbox 'exists' in the database, returns false if it doesn't
 		private bool UserExists()
         {
 			// Create a local reference to the Sql Connection in the DBConnection class
@@ -144,7 +146,7 @@ namespace C969_Binkley
 		}
 
 		// Void -> String
-		// This function grabs the password of the user from the username textbox if it exists
+		// This method grabs the password of the user from the username textbox if it exists
 		private string GrabPasswordFromDatabase()
         {
 			// Create a local reference to the Sql Connection in the DBConnection class
@@ -213,7 +215,7 @@ namespace C969_Binkley
 		}
 	
 		// Void -> Void
-		// This function sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
+		// This method sets up a timer and adds a one second update interval and the tmr_Tick event handler to it
 		private void StartTimer()
 		{
 			System.Windows.Forms.Timer timer = null;
@@ -233,7 +235,7 @@ namespace C969_Binkley
 		}
 
 		// String String Boolean -> Void
-		// This function takes in the username string, the password string and a boolean and
+		// This method takes in the username string, the password string and a boolean and
 		// depending on whether or not the authentication was successful or not, logs the authentication result
 		private void LogAuthentication(string username, string password, bool success)
         {
@@ -261,7 +263,7 @@ namespace C969_Binkley
         }
 
 		// String -> User
-		// This function grabs the user based on the input string for the username
+		// This method grabs the user based on the input string for the username
 		private User GetUser(string username)
         {
 			// Create a local reference to the Sql Connection in the DBConnection class
@@ -331,7 +333,7 @@ namespace C969_Binkley
 		}
 
 		// Int -> Void
-		// This function takes in the user who has successfully authenticated and checks if they have an appointment in 15 mins or less upon login
+		// This method takes in the user who has successfully authenticated and checks if they have an appointment in 15 mins or less upon login
 		public void CheckUpcoming(int inpUserId)
 		{
 			List<Appointment> tempList = new List<Appointment>();

@@ -16,6 +16,8 @@ namespace C969_Binkley.StaticClasses
         // Make a global 'static' List to be modified by the rest of the program.
         public static BindingList<User> listOfUsers = new BindingList<User>();
 
+		// Void -> BindingList<User>
+		// This method grabs all users in the database and returns them in a BindingList<User> for the static BindingList property of this class
 		public static BindingList<User> GetAllUsers()
 		{
 			// Create a local reference to the Sql Connection in the DBConnection class

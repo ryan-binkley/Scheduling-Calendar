@@ -8,9 +8,11 @@ namespace C969_Binkley.DatabaseObjects
 {
     public class Address
     {
+        // Create an instance of the Random class to make a random number generator
         Random rng = new Random();
         public Address()
         {
+            // Uses the Random class to make a psuedo-random number between 1 and 1,000,000 to decrease the odds of non-unique numbers being assigned as the ID.
             addressId = rng.Next(1, 1000000);
         }
 
@@ -18,14 +20,6 @@ namespace C969_Binkley.DatabaseObjects
         {
             
         }
-        public Address(int addID, string addName, City inpCity, string inpPhone)
-        {
-            AddressId = addID;
-            AddressName = addName;
-            City = inpCity;
-            Phone = inpPhone;
-        }
-
         private int addressId;
         public int AddressId
         {

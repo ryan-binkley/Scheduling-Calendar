@@ -10,10 +10,11 @@ namespace C969_Binkley
 {
     public class Appointment
     {
+        // Create an instance of the Random class to make a random number generator
         Random rng = new Random();
         public Appointment()
         {
-            
+            // Uses the Random class to make a psuedo-random number between 1 and 1,000,000 to decrease the odds of non-unique numbers being assigned as the ID.
             appointmentId = rng.Next(1, 1000000);
         }
 
@@ -21,15 +22,6 @@ namespace C969_Binkley
         {
 
         }
-        public Appointment(Customer inpCustomer, User inpUser, string apptType, DateTime apptStart, DateTime apptEnd)
-        {
-            Customer = inpCustomer;
-            User = inpUser;
-            Type = apptType;
-            Start = apptStart;
-            End = apptEnd;
-        }
-
         private int appointmentId;
         public int AppointmentId
         {
